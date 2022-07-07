@@ -3,7 +3,7 @@ root = true
 [*]
 ident_style = spaces
 ident_size = 2
-end_of_line = crlf
+end_of_line = lf
 charset = utr-8
 trim_trailing-whitespace = true
 inser_final_newline = true

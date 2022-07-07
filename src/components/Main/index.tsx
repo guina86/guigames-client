@@ -2,6 +2,7 @@ import * as S from './styles'
 
 const Main = ({
   title = 'Next.js project boilerplate',
+
   description = 'Next.js, TypeScript, Styled Components, Jest and StoryBook'
 }) => (
   <S.Wrapper>
@@ -9,8 +10,11 @@ const Main = ({
       src="/img/logo.svg"
       alt="Imagem de um átomo e React Avançado escrito ao lado."
     />
+
     <S.Title>{title}</S.Title>
+
     <S.Description>{description}</S.Description>
+
     <S.Illustration
       src="/img/hero-illustration.svg"
       alt="Um desenvolvedor de frente para uma tela com código."
