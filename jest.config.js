@@ -8,7 +8,12 @@ const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testEnvironment: 'jest-environment-jsdom',
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.ts(x)?', '!src/**/stories.tsx']
+  collectCoverageFrom: ['src/**/*.ts(x)?', '!src/**/stories.tsx'],
+  modulePaths: ['<rootDir>/src/'],
+  moduleNameMapper: {
+    '^styled-components':
+      '<rootDir>/node_modules/styled-components/dist/styled-components.browser.cjs.js'
+  }
 }
 
 module.exports = createJestConfig(customJestConfig)

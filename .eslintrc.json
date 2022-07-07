@@ -11,6 +11,7 @@
   ],
   "rules": {
     "no-unused-vars": "error",
-    "import/no-anonymous-default-export": "off"
+    "import/no-anonymous-default-export": "off",
+    "testing-library/no-node-access": "warn"
   }
 }
