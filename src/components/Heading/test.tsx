@@ -1,11 +1,14 @@
-import { screen } from '@testing-library/react'
+import { RenderResult, screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import Heading from '.'
+import Heading, { HeadingProps } from '.'
 
 describe('<Heading />', () => {
+  const renderSut = (props?: Omit<HeadingProps, 'children'>): RenderResult =>
+    renderWithTheme(<Heading {...props}>Gui Games</Heading>)
+
   it('should render a white heading by default', () => {
-    renderWithTheme(<Heading>Gui Games</Heading>)
+    renderSut()
 
     expect(screen.getByRole('heading', { name: /gui games/i })).toHaveStyle({
       color: '#FAFAFA'
@@ -13,7 +16,7 @@ describe('<Heading />', () => {
   })
 
   it('should render a black heading when color is passed', () => {
-    renderWithTheme(<Heading color="black">Gui Games</Heading>)
+    renderSut({ color: 'black' })
 
     expect(screen.getByRole('heading', { name: /gui games/i })).toHaveStyle({
       color: '#030517'
@@ -21,7 +24,7 @@ describe('<Heading />', () => {
   })
 
   it('should render a heading with a line to the left side', () => {
-    renderWithTheme(<Heading lineLeft>Gui Games</Heading>)
+    renderSut({ lineLeft: true })
 
     expect(screen.getByRole('heading', { name: /gui games/i })).toHaveStyle({
       'border-left': '0.7rem solid #3CD3C1'
@@ -29,7 +32,7 @@ describe('<Heading />', () => {
   })
 
   it('should render a heading with a line at the bottom', () => {
-    renderWithTheme(<Heading lineBottom>Gui Games</Heading>)
+    renderSut({ lineBottom: true })
 
     expect(screen.getByRole('heading', { name: /gui games/i })).toHaveStyleRule(
       'border-bottom',
