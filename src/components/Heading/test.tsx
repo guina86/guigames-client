@@ -27,7 +27,7 @@ describe('<Heading />', () => {
     renderSut({ lineLeft: true })
 
     expect(screen.getByRole('heading', { name: /gui games/i })).toHaveStyle({
-      'border-left': '0.7rem solid #3CD3C1'
+      'border-left': '0.7rem solid #F231A5'
     })
   })
 
@@ -41,5 +41,30 @@ describe('<Heading />', () => {
         modifier: '::after'
       }
     )
+  })
+
+  it('should render a heading with a small size', () => {
+    renderSut({ size: 'small' })
+
+    expect(screen.getByRole('heading', { name: /gui games/i })).toHaveStyle({
+      'font-size': '1.6rem'
+    })
+    expect(screen.getByRole('heading', { name: /gui games/i })).toHaveStyleRule(
+      'width',
+      '3rem',
+      {
+        modifier: '::after'
+      }
+    )
+  })
+
+  it('should render a heading with with a secondary line color', () => {
+    renderSut({ lineColor: 'secondary', lineBottom: true, lineLeft: true })
+
+    const heading = screen.getByRole('heading', { name: /gui games/i })
+    expect(heading).toHaveStyle({ 'border-left': '0.7rem solid #3CD3C1' })
+    expect(heading).toHaveStyleRule('border-bottom', '0.5rem solid #3CD3C1', {
+      modifier: '::after'
+    })
   })
 })
