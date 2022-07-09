@@ -8,3 +8,4 @@ charset = utr-8
 trim_trailing-whitespace = true
 inser_final_newline = true
 quote_type = single
+max_line_length = 100

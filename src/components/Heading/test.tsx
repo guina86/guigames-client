@@ -49,13 +49,9 @@ describe('<Heading />', () => {
     expect(screen.getByRole('heading', { name: /gui games/i })).toHaveStyle({
       'font-size': '1.6rem'
     })
-    expect(screen.getByRole('heading', { name: /gui games/i })).toHaveStyleRule(
-      'width',
-      '3rem',
-      {
-        modifier: '::after'
-      }
-    )
+    expect(screen.getByRole('heading', { name: /gui games/i })).toHaveStyleRule('width', '3rem', {
+      modifier: '::after'
+    })
   })
 
   it('should render a heading with with a secondary line color', () => {

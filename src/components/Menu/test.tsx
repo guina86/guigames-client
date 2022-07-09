@@ -4,8 +4,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import Menu, { MenuProps } from '.'
 
 describe('<Menu />', () => {
-  const renderSut = (args?: MenuProps): RenderResult =>
-    renderWithTheme(<Menu {...args} />)
+  const renderSut = (args?: MenuProps): RenderResult => renderWithTheme(<Menu {...args} />)
 
   it('should render the menu', () => {
     renderSut()

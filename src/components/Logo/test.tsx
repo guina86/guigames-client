@@ -42,10 +42,8 @@ describe('<Logo />', () => {
   it('should render a a bigger logo without text on if hidenOnMobile', () => {
     renderSut({ hideOnMobile: true })
 
-    expect(screen.getByTestId('logo-wrapper')).toHaveStyleRule(
-      'width',
-      '5.8rem',
-      { media: '(max-width: 768px)' }
-    )
+    expect(screen.getByTestId('logo-wrapper')).toHaveStyleRule('width', '5.8rem', {
+      media: '(max-width: 768px)'
+    })
   })
 })
