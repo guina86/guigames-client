@@ -1,7 +1,7 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 import { ButtonProps } from '.'
 
-type WrapperProps = Omit<ButtonProps, 'children'> & { hasIcon: boolean }
+type WrapperProps = ButtonProps & { hasIcon: boolean }
 
 const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
@@ -23,10 +23,6 @@ const wrapperModifiers = {
     width: 100%;
   `,
   hasIcon: (theme: DefaultTheme) => css`
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
     svg {
       width: 1.7rem;
 
@@ -39,11 +35,20 @@ const wrapperModifiers = {
 
 export const Wrapper = styled.button<WrapperProps>`
   ${({ theme, size, fullWidth, hasIcon }) => css`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
     color: ${theme.colors.white};
     border: none;
     cursor: pointer;
     border-radius: ${theme.border.radius};
+    text-decoration: none;
+
+    &:hover {
+      background: linear-gradient(180deg, #e35565 0%, #d978a6 50%);
+    }
+
     ${wrapperModifiers[size!](theme)};
     ${fullWidth && wrapperModifiers.fullWidth()}
     ${hasIcon && wrapperModifiers.hasIcon(theme)}

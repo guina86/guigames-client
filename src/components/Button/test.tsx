@@ -5,7 +5,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import Button, { ButtonProps } from '.'
 
 describe('<Button />', () => {
-  const renderSut = (args?: Omit<ButtonProps, 'children'>): RenderResult =>
+  const renderSut = (args?: ButtonProps): RenderResult =>
     renderWithTheme(<Button {...args}>Buy now</Button>)
 
   it('should render medium size by default', () => {
@@ -52,5 +52,11 @@ describe('<Button />', () => {
 
     expect(screen.getByText(/buy now/i)).toBeInTheDocument()
     expect(screen.getByTestId('icon')).toBeInTheDocument()
+  })
+
+  it('should render button as a link', () => {
+    renderSut({ as: 'a', href: '/link' })
+
+    expect(screen.getByRole('link', { name: /buy now/i })).toHaveAttribute('href', '/link')
   })
 })
