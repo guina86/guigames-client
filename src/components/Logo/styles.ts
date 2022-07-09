@@ -6,19 +6,21 @@ import { LogoProps } from '.'
 const wrapperModifiers = {
   normal: () => css`
     width: 17rem;
-    height: auto;
+    height: 3.4;
   `,
   large: () => css`
     width: 30rem;
-    height: auto;
+    height: 6rem;
   `,
   hideOnMobile: () => css`
     ${media.lessThan('medium')`
       width: 5.8rem;
-      height: auto;
+      height: 4.7rem;
+      overflow: hidden;
 
       svg {
-        height: 4.5rem;
+        width: 6;
+        height: 4rem;
         pointer-events: none;
       }
 
@@ -31,6 +33,7 @@ const wrapperModifiers = {
 
 export const Wrapper = styled.div<LogoProps>`
   ${({ theme, color, size, hideOnMobile }) => css`
+    padding-top: 0.8rem;
     color: ${theme.colors[color!]};
     ${wrapperModifiers[size!]};
     ${hideOnMobile && wrapperModifiers.hideOnMobile}
