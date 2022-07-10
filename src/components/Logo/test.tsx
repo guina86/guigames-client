@@ -5,7 +5,7 @@ import Logo, { LogoProps } from '.'
 
 describe('<Logo />', () => {
   const renderSut = (props?: LogoProps): RenderResult =>
-    renderWithTheme(<Logo testId="logo-wrapper" {...props} />)
+    renderWithTheme(<Logo wrapperTestId="logo-wrapper" {...props} />)
 
   it('should render a white label by default', () => {
     renderSut()

@@ -8,15 +8,15 @@ type SutProps = {
   ribbonSize: 'small' | 'normal'
   ribbonColor: 'primary' | 'secondary'
 }
+const args = {
+  img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/391730/header.jpg',
+  title: 'Defy death',
+  subtitle: '<p>Play the new <strong>CrashLands</strong> season',
+  buttonLabel: 'Buy now',
+  buttonLink: '/games/defy-death'
+}
 
 describe('<Banner />', () => {
-  const args = {
-    img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/391730/header.jpg',
-    title: 'Defy death',
-    subtitle: '<p>Play the new <strong>CrashLands</strong> season',
-    buttonLabel: 'Buy now',
-    buttonLink: '/games/defy-death'
-  }
   const renderSut = (props?: SutProps): RenderResult =>
     renderWithTheme(<Banner {...args} {...props} />)
 
