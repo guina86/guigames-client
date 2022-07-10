@@ -67,17 +67,21 @@ exports[`<Banner /> should render the banner 1`] = `
   font-weight: 600;
 }
 
+@media (max-width:1170px) {
+
+}
+
 @media (min-width:768px) {
   .c0 {
     box-shadow: 0 0.4rem 0.5rem 0 rgba(0,0,0,0.2);
     border-radius: 0 0 0.4rem 0.4rem;
-    overflow: hidden;
   }
 }
 
 @media (min-width:768px) {
   .c1 {
     height: 58rem;
+    border-radius: 0 0 0.4rem 0.4rem;
   }
 }
 
@@ -87,6 +91,7 @@ exports[`<Banner /> should render the banner 1`] = `
     position: absolute;
     bottom: 0;
     left: 0;
+    border-radius: 0 0 0.4rem 0.4rem;
   }
 }
 

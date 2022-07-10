@@ -3,6 +3,12 @@ import { renderWithTheme } from 'utils/tests/helpers'
 
 import Banner from '.'
 
+type SutProps = {
+  ribbon: string
+  ribbonSize: 'small' | 'normal'
+  ribbonColor: 'primary' | 'secondary'
+}
+
 describe('<Banner />', () => {
   const args = {
     img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/391730/header.jpg',
@@ -11,7 +17,8 @@ describe('<Banner />', () => {
     buttonLabel: 'Buy now',
     buttonLink: '/games/defy-death'
   }
-  const renderSut = (): RenderResult => renderWithTheme(<Banner {...args} />)
+  const renderSut = (props?: SutProps): RenderResult =>
+    renderWithTheme(<Banner {...args} {...props} />)
 
   it('should render the banner', () => {
     const { container } = renderSut()
@@ -24,5 +31,17 @@ describe('<Banner />', () => {
     expect(screen.getByRole('link', { name: /buy now/i })).toBeInTheDocument()
 
     expect(container).toMatchSnapshot()
+  })
+
+  it('should render a Ribbon', () => {
+    renderSut({ ribbon: 'My Ribbon', ribbonSize: 'small', ribbonColor: 'secondary' })
+
+    const ribbon = screen.getByText(/my ribbon/i)
+    expect(ribbon).toBeInTheDocument()
+    expect(ribbon).toHaveStyle({
+      backgroundColor: '#3CD3C1',
+      height: '2.6rem',
+      fontSize: '1.2rem'
+    })
   })
 })
