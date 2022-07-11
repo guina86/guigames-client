@@ -32,7 +32,7 @@ describe('<Ribbon />', () => {
   })
 
   it('should render small size when passed', () => {
-    renderSut({ size: 'small' })
+    renderSut({ size: 'small', color: 'primary' })
 
     expect(screen.getByText(/best seller/i)).toHaveStyle({ height: '2.6rem', fontSize: '1.2rem' })
   })
