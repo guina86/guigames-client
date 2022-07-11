@@ -5,11 +5,11 @@ const createJestConfig = nextJest({
 })
 
 const customJestConfig = {
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/.jest/setup.js'],
   testEnvironment: 'jest-environment-jsdom',
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.ts(x)?', '!src/**/stories.tsx'],
-  modulePaths: ['<rootDir>/src/'],
+  modulePaths: ['<rootDir>/src/', '<rootDir>/.jest'],
   moduleNameMapper: {
     '^styled-components':
       '<rootDir>/node_modules/styled-components/dist/styled-components.browser.cjs.js'
