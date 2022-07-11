@@ -14,6 +14,11 @@ export default {
   argTypes: {
     onFav: { action: 'clicked' },
     ribbon: { type: 'string' }
+  },
+  parameters: {
+    backgrounds: {
+      default: 'gui-dark'
+    }
   }
 } as Meta
 
