@@ -4,8 +4,6 @@ import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import * as S from './styles'
 
 export type GameCardProps = {
-  id: string
-  slug: string
   title: string
   developer: string
   img: string
@@ -19,8 +17,6 @@ export type GameCardProps = {
 }
 
 const GameCard = ({
-  id,
-  slug,
   title,
   developer,
   img,
@@ -56,11 +52,11 @@ const GameCard = ({
       <S.BuyBox>
         {!!promotionalPrice && (
           <S.Price aria-label="Full price" isPromotional>
-            R$ {price},00
+            R${price},00
           </S.Price>
         )}
         <S.Price aria-label={!!promotionalPrice ? 'Promotional price' : 'Full price'}>
-          R$ {promotionalPrice || price},00
+          R${promotionalPrice || price},00
         </S.Price>
         <Button icon={<AddShoppingCart />} size="small" />
       </S.BuyBox>
