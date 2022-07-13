@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { InputHTMLAttributes, useState } from 'react'
 import * as S from './styles'
 
