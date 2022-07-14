@@ -2,8 +2,14 @@ import { Story, Meta } from '@storybook/react'
 import Checkbox, { CheckboxProps } from '.'
 
 export default {
-  title: 'Checkbox',
+  title: 'Form/Checkbox',
   component: Checkbox,
+  parameters: {
+    layout: 'fullscreen',
+    backgrounds: {
+      default: 'gui-dark'
+    }
+  },
   argTypes: {
     onCheck: { action: 'checked' }
   }
@@ -12,8 +18,8 @@ export default {
 export const Default: Story<CheckboxProps> = (args) => (
   <div
     style={{
-      height: 100,
-      padding: 10,
+      height: 120,
+      padding: 20,
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between'
