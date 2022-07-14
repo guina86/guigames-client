@@ -7,6 +7,7 @@ import { Menu2 as MenuIcon } from '@styled-icons/remix-fill'
 import Button from 'components/Button'
 import Logo from 'components/Logo'
 import MediaMatch from 'components/MediaMatch'
+import Link from 'next/link'
 import { useState } from 'react'
 import * as S from './styles'
 
@@ -45,7 +46,9 @@ const Menu = ({ username = '' }: MenuProps) => {
         </S.IconWrapper>
         {!username && (
           <MediaMatch greaterThan="medium">
-            <Button>Sign in</Button>
+            <Link href="/sign-in" passHref>
+              <Button as="a">Sign in</Button>
+            </Link>
           </MediaMatch>
         )}
       </S.MenuGroup>
@@ -64,13 +67,15 @@ const Menu = ({ username = '' }: MenuProps) => {
         </S.MenuNav>
         {!username && (
           <S.RegisterBox>
-            <Button fullWidth size="large">
-              Log in now
-            </Button>
+            <Link href="/sign-in" passHref>
+              <Button as="a" fullWidth size="large">
+                Sign in
+              </Button>
+            </Link>
             <span>or</span>
-            <S.CreateAccount href="#" title="Sign In">
-              Sign Up
-            </S.CreateAccount>
+            <Link href="/sign-up" passHref>
+              <S.CreateAccount title="Sign In">Sign Up</S.CreateAccount>
+            </Link>
           </S.RegisterBox>
         )}
       </S.MenuFull>

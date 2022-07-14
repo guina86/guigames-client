@@ -54,6 +54,14 @@ describe('<Heading />', () => {
     })
   })
 
+  it('should render a heading with a huge size', () => {
+    renderSut({ size: 'huge' })
+
+    expect(screen.getByRole('heading', { name: /gui games/i })).toHaveStyle({
+      'font-size': '5.2rem'
+    })
+  })
+
   it('should render a heading with with a secondary line color', () => {
     renderSut({ lineColor: 'secondary', lineBottom: true, lineLeft: true })
 

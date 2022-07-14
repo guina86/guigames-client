@@ -1,7 +1,7 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 import { ButtonProps } from '.'
 
-type WrapperProps = ButtonProps & { hasIcon: boolean }
+export type WrapperProps = ButtonProps & { hasIcon: boolean }
 
 const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
