@@ -45,7 +45,7 @@ describe('<Home />', () => {
 
     expect(screen.getByTestId('Mock Menu')).toBeInTheDocument()
     expect(screen.getByTestId('Mock BannerSlider')).toBeInTheDocument()
-    expect(screen.getByTestId('Mock Footer')).toBeInTheDocument()
     expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(5)
+    expect(screen.getByTestId('Mock Footer')).toBeInTheDocument()
   })
 })
