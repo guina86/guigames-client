@@ -8,7 +8,12 @@ const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.js'],
   testEnvironment: 'jest-environment-jsdom',
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.ts(x)?', '!src/**/stories.tsx'],
+  collectCoverageFrom: [
+    'src/**/*.ts(x)?',
+    '!src/**/stories.tsx',
+    '!src/pages/**/tsx',
+    '!src/styles/**/*.ts'
+  ],
   modulePaths: ['<rootDir>/src/', '<rootDir>/.jest'],
   moduleNameMapper: {
     '^styled-components':
