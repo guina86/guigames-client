@@ -11,7 +11,7 @@ const customJestConfig = {
   collectCoverageFrom: [
     'src/**/*.ts(x)?',
     '!src/**/stories.tsx',
-    '!src/pages/**/tsx',
+    '!src/pages/**/*.tsx',
     '!src/styles/**/*.ts'
   ],
   modulePaths: ['<rootDir>/src/', '<rootDir>/.jest'],
