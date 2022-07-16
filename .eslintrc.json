@@ -3,15 +3,14 @@
   "plugins": ["testing-library"],
   "overrides": [
     {
-      "files": [
-        "**/?(*.)+(spec|test).[jt]s?(x)"
-      ],
+      "files": ["**/?(*.)+(spec|test).[jt]s?(x)"],
       "extends": ["plugin:testing-library/react"]
     }
   ],
   "rules": {
     "no-unused-vars": "error",
     "import/no-anonymous-default-export": "off",
-    "testing-library/no-node-access": "warn"
+    "@testing-library/no-node-access": "off",
+    "@testing-library/no-container": "off"
   }
 }
