@@ -1,7 +1,6 @@
 /* eslint-disable testing-library/no-node-access */
 import 'match-media-mock'
 import { render, RenderResult, screen } from '@testing-library/react'
-
 import Slider from '.'
 
 describe('<Slider />', () => {

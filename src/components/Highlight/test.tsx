@@ -1,31 +1,20 @@
 import { RenderResult, screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
-
-import Highlight from '.'
-
+import Highlight, { HighlighProps } from '.'
 import * as S from './styles'
-
-type SutProps = {
-  floatImage?: string
-  alignment?: 'right' | 'left'
-}
-const args = {
-  title: 'Heading 1',
-  subtitle: 'Heading 2',
-  backgroundImage: '/img/red-dead-img.jpg',
-  buttonLabel: 'Buy now',
-  buttonLink: '/rdr2'
-}
+import highlighMock from './mock'
 
 describe('<Highlight />', () => {
-  const renderSut = (props?: SutProps): RenderResult =>
-    renderWithTheme(<Highlight {...args} {...props} wrapperTestId="wrapper" />)
+  const renderSut = (props?: Partial<HighlighProps>): RenderResult =>
+    renderWithTheme(<Highlight {...highlighMock} {...props} wrapperTestId="wrapper" />)
 
   it('should render headings and button', () => {
     renderSut()
 
-    expect(screen.getByRole('heading', { name: /heading 1/i })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: /heading 2/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /red dead is back/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /come see john´s new adventures/i })
+    ).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /buy now/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /buy now/i })).toHaveAttribute('href', '/rdr2')
   })
@@ -34,14 +23,17 @@ describe('<Highlight />', () => {
     renderSut()
 
     expect(screen.getByTestId('wrapper')).toHaveStyle({
-      backgroundImage: `url(${args.backgroundImage})`
+      backgroundImage: `url(${highlighMock.backgroundImage})`
     })
   })
 
   it('should render float image', () => {
     renderSut({ floatImage: '/float-image.png' })
 
-    expect(screen.getByRole('img', { name: args.title })).toHaveAttribute('src', '/float-image.png')
+    expect(screen.getByRole('img', { name: highlighMock.title })).toHaveAttribute(
+      'src',
+      '/float-image.png'
+    )
   })
 
   it('should render align right by default', () => {

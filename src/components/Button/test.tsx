@@ -1,12 +1,11 @@
-import { AddShoppingCart } from '@styled-icons/material-outlined'
 import { RenderResult, screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
-
+import { AddShoppingCart } from '@styled-icons/material-outlined'
 import Button, { ButtonProps } from '.'
 
 describe('<Button />', () => {
-  const renderSut = (args?: ButtonProps): RenderResult =>
-    renderWithTheme(<Button {...args}>Buy now</Button>)
+  const renderSut = (props?: ButtonProps): RenderResult =>
+    renderWithTheme(<Button {...props}>Buy now</Button>)
 
   it('should render medium size by default', () => {
     const { container } = renderSut()

@@ -1,23 +1,21 @@
 import { RenderResult, screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
-
 import GameInfo from '.'
-
-const args = {
-  title: 'Game title',
-  description: 'Game description',
-  price: '200.00'
-}
+import gameMock from './mock'
 
 describe('<GameInfo />', () => {
-  const renderSut = (): RenderResult => renderWithTheme(<GameInfo {...args} />)
+  const renderSut = (): RenderResult => renderWithTheme(<GameInfo {...gameMock} />)
 
   it('should render game information', () => {
     const { container } = renderSut()
 
-    expect(screen.getByRole('heading', { name: /game title/i })).toBeInTheDocument()
-    expect(screen.getByText(/game description/i)).toBeInTheDocument()
-    expect(screen.getByText('$200.00')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /borderlands 3/i })).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        'The original shooter-looter returns, packing bazillions of guns and a mayhem-fueled adventure! Blast through new worlds and enemies as one of four new Vault Hunters.'
+      )
+    ).toBeInTheDocument()
+    expect(screen.getByText('$215.00')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /add to cart/i })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /wishlist/i })).toBeInTheDocument()
 

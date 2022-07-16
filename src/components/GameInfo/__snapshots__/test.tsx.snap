@@ -231,18 +231,18 @@ exports[`<GameInfo /> should render game information 1`] = `
       class="c1"
       color="black"
     >
-      Game title
+      Borderlands 3
     </h2>
     <div
       class="c2 c3"
       color="secondary"
     >
-      $200.00
+      $215.00
     </div>
     <p
       class="c4"
     >
-      Game description
+      The original shooter-looter returns, packing bazillions of guns and a mayhem-fueled adventure! Blast through new worlds and enemies as one of four new Vault Hunters.
     </p>
     <div
       class="c5"

@@ -2,11 +2,9 @@
 /* eslint-disable testing-library/no-container */
 import 'match-media-mock'
 import { RenderResult, screen } from '@testing-library/react'
-
-import BannerSlider from '.'
-
-import items from './mock'
 import { renderWithTheme } from 'utils/tests/helpers'
+import BannerSlider from '.'
+import items from './mock'
 
 describe('<BannerSlider />', () => {
   const renderSut = (): RenderResult => renderWithTheme(<BannerSlider items={items} />)

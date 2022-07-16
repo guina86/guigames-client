@@ -2,9 +2,8 @@
 import { RenderResult, screen, waitFor } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 import userEvent from '@testing-library/user-event'
-
-import TextField, { TextFieldProps } from '.'
 import { Email } from '@styled-icons/material-outlined'
+import TextField, { TextFieldProps } from '.'
 
 describe('<TextField />', () => {
   const renderSut = (props?: TextFieldProps): RenderResult =>

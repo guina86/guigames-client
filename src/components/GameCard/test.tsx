@@ -1,8 +1,6 @@
 import { fireEvent, RenderResult, screen } from '@testing-library/react'
-import { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import { renderWithTheme } from 'utils/tests/helpers'
-
-import GameCard from '.'
+import GameCard, { GameCardProps } from '.'
 
 const args = {
   title: 'Defy death',
@@ -11,17 +9,8 @@ const args = {
   price: 105
 }
 
-type SutProps = {
-  promotionalPrice?: number
-  favorite?: boolean
-  onFav?: () => void
-  ribbon?: string
-  ribbonColor?: RibbonColors
-  ribbonSize?: RibbonSizes
-}
-
 describe('<GameCard />', () => {
-  const renderSut = (props?: SutProps): RenderResult =>
+  const renderSut = (props?: Partial<GameCardProps>): RenderResult =>
     renderWithTheme(<GameCard {...args} {...props} />)
 
   it('should render correctly', () => {

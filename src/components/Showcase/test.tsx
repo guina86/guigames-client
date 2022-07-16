@@ -3,7 +3,6 @@ import { RenderResult, screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 import highlightMock from 'components/Highlight/mock'
 import gamesMock from 'components/GameCardSlider/mock'
-
 import Showcase, { ShowcaseProps } from '.'
 
 describe('<Showcase />', () => {

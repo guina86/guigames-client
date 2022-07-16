@@ -1,7 +1,6 @@
 import { RenderResult, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { renderWithTheme } from 'utils/tests/helpers'
-
 import Radio, { RadioProps } from '.'
 
 describe('<Radio />', () => {

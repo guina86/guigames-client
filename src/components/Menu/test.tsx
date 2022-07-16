@@ -1,10 +1,9 @@
 import { fireEvent, RenderResult, screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
-
 import Menu, { MenuProps } from '.'
 
 describe('<Menu />', () => {
-  const renderSut = (args?: MenuProps): RenderResult => renderWithTheme(<Menu {...args} />)
+  const renderSut = (props?: MenuProps): RenderResult => renderWithTheme(<Menu {...props} />)
 
   it('should render the menu', () => {
     renderSut()

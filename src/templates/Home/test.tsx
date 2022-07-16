@@ -1,9 +1,7 @@
 import 'match-media-mock'
 import { RenderResult, screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
-
 import Home from '.'
-
 import bannersMock from 'components/BannerSlider/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'

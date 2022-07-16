@@ -1,13 +1,7 @@
 import { RenderResult, screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
+import Banner, { BannerProps } from '.'
 
-import Banner from '.'
-
-type SutProps = {
-  ribbon: string
-  ribbonSize: 'small' | 'normal'
-  ribbonColor: 'primary' | 'secondary'
-}
 const args = {
   img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/391730/header.jpg',
   title: 'Defy death',
@@ -17,7 +11,7 @@ const args = {
 }
 
 describe('<Banner />', () => {
-  const renderSut = (props?: SutProps): RenderResult =>
+  const renderSut = (props?: Partial<BannerProps>): RenderResult =>
     renderWithTheme(<Banner {...args} {...props} />)
 
   it('should render the banner', () => {
