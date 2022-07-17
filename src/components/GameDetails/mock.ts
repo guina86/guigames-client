@@ -5,6 +5,6 @@ export default {
   releaseDate: '2020-11-21T23:00:00',
   platforms: ['windows'],
   publisher: 'CD PROJEKT RED',
-  rating: 'BR0',
+  rating: 'BR18',
   genres: ['RPG']
 } as GameDetailsProps

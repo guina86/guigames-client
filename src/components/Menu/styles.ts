@@ -12,6 +12,7 @@ export const Wrapper = styled.menu`
     padding: ${theme.spacings.xxsmall} 0;
     position: relative;
     margin-top: ${theme.spacings.xxsmall};
+    z-index: ${theme.layers.menu};
   `}
 `
 
