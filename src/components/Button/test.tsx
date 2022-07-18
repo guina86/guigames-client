@@ -70,4 +70,13 @@ describe('<Button />', () => {
 
     expect(screen.getByRole('link', { name: /buy now/i })).toHaveAttribute('href', '/link')
   })
+
+  it('should render a disabled button', () => {
+    renderSut({ disabled: true })
+
+    expect(screen.getByRole('button')).toHaveStyle({
+      cursor: 'not-allowed',
+      filter: 'saturate(30%)'
+    })
+  })
 })
