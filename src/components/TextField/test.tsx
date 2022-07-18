@@ -10,7 +10,7 @@ describe('<TextField />', () => {
     renderWithTheme(<TextField {...props} />)
 
   it('should render with label', () => {
-    renderSut({ label: 'Label', labelFor: 'Field', id: 'Field' })
+    renderSut({ label: 'Label', name: 'Label' })
 
     expect(screen.getByLabelText('Label')).toBeInTheDocument()
   })
@@ -42,15 +42,14 @@ describe('<TextField />', () => {
   })
 
   it('should render a disabled TextField', () => {
-    renderSut({ label: 'Label', labelFor: 'Label', id: 'Label', disabled: true })
+    renderSut({ label: 'Label', name: 'Label', disabled: true })
     expect(screen.getByRole('textbox')).toBeDisabled()
   })
 
   it('should render with error message', () => {
     renderSut({
       label: 'Label',
-      labelFor: 'Label',
-      id: 'Label',
+      name: 'Label',
       icon: <Email data-testid="icon" />,
       error: 'any_error'
     })
@@ -59,7 +58,7 @@ describe('<TextField />', () => {
 
   it('should change its value when typing', async () => {
     const onInput = jest.fn()
-    renderSut({ onInput, label: 'TextField', labelFor: 'TextField', id: 'TextField' })
+    renderSut({ onInput, label: 'TextField', name: 'TextField' })
 
     const input = screen.getByRole('textbox')
     const text = 'This is my new text'
@@ -73,7 +72,7 @@ describe('<TextField />', () => {
   })
 
   it('should be accessible by tab', () => {
-    renderSut({ label: 'TextField', labelFor: 'TextField', id: 'TextField' })
+    renderSut({ label: 'TextField', name: 'TextField' })
 
     expect(document.body).toHaveFocus()
 
