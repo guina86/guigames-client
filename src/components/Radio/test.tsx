@@ -7,7 +7,7 @@ describe('<Radio />', () => {
   const renderSut = (props?: RadioProps): RenderResult => renderWithTheme(<Radio {...props} />)
 
   it('should render with label (white)', () => {
-    renderSut({ label: 'Radio', labelFor: 'check', value: 'any_value' })
+    renderSut({ label: 'Radio', value: 'any_value' })
 
     const label = screen.getByText('Radio')
     expect(label).toBeInTheDocument()
@@ -28,7 +28,7 @@ describe('<Radio />', () => {
 
   it('should dispatch onCheck when label status changes', async () => {
     const onCheck = jest.fn()
-    renderSut({ label: 'Radio', labelFor: 'Radio', onCheck, value: 'any_value' })
+    renderSut({ label: 'Radio', onCheck, value: 'any_value' })
 
     expect(onCheck).not.toHaveBeenCalled()
 
@@ -41,7 +41,7 @@ describe('<Radio />', () => {
   })
 
   it('should be accessible with tab', async () => {
-    renderSut({ label: 'Radio', labelFor: 'Radio' })
+    renderSut({ label: 'Radio', value: 'Radio' })
 
     expect(document.body).toHaveFocus()
 

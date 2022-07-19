@@ -25,15 +25,8 @@ export const Default: Story<RadioProps> = (args) => (
       justifyContent: 'space-between'
     }}
   >
-    <Radio
-      label="primeiro"
-      labelFor="primeiro"
-      name="nome"
-      value="primeiro"
-      defaultChecked
-      {...args}
-    />
-    <Radio label="segundo" labelFor="segundo" name="nome" value="segundo" {...args} />
-    <Radio label="terceiro" labelFor="terceiro" name="nome" value="terceiro" {...args} />
+    <Radio label="primeiro" name="nome" value="primeiro" defaultChecked {...args} />
+    <Radio label="segundo" name="nome" value="segundo" {...args} />
+    <Radio label="terceiro" name="nome" value="terceiro" {...args} />
   </div>
 )

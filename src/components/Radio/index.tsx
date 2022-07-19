@@ -8,27 +8,25 @@ export type RadioProps = {
   onCheck?: (value?: RadioValue) => void
   label?: string
   labelColor?: 'white' | 'black'
-  labelFor?: string
   value?: RadioValue
 } & InputHTMLAttributes<HTMLInputElement>
 
-const Radio = ({
-  label,
-  onCheck,
-  labelColor = 'white',
-  labelFor = '',
-  value,
-  ...props
-}: RadioProps) => {
+const Radio = ({ label, onCheck, labelColor = 'white', value, ...props }: RadioProps) => {
   const onChange = () => {
     !!onCheck && onCheck(value)
   }
 
   return (
     <S.Wrapper>
-      <S.Input id={labelFor} type="radio" value={value} onChange={onChange} {...props} />
+      <S.Input
+        id={!!label ? value?.toString() : undefined}
+        type="radio"
+        value={value}
+        onChange={onChange}
+        {...props}
+      />
       {!!label && (
-        <S.Label labelColor={labelColor} htmlFor={labelFor}>
+        <S.Label labelColor={labelColor} htmlFor={value?.toString()}>
           {label}
         </S.Label>
       )}
