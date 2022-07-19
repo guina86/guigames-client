@@ -18,13 +18,11 @@ const props = {
   freeHighlight: highlightMock
 }
 
-jest.mock('components/Menu', () => ({
+jest.mock('templates/Base', () => ({
   __esModule: true,
-  default: () => <div data-testid="Mock Menu"></div>
-}))
-jest.mock('components/Footer', () => ({
-  __esModule: true,
-  default: () => <div data-testid="Mock Footer"></div>
+  default: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="Mock Base">{children}</div>
+  )
 }))
 jest.mock('components/Showcase', () => ({
   __esModule: true,
