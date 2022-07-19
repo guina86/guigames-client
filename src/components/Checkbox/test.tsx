@@ -9,7 +9,7 @@ describe('<Checkbox />', () => {
     renderWithTheme(<Checkbox {...props} />)
 
   it('should render with label', () => {
-    renderSut({ label: 'checkbox label', labelFor: 'check' })
+    renderSut({ label: 'checkbox label', name: 'check' })
 
     expect(screen.getByRole('checkbox')).toBeInTheDocument()
     expect(screen.getByLabelText(/checkbox label/i)).toBeInTheDocument()
@@ -23,7 +23,7 @@ describe('<Checkbox />', () => {
   })
 
   it('should render with black label', () => {
-    renderSut({ label: 'checkbox label', labelFor: 'check', labelColor: 'black' })
+    renderSut({ label: 'checkbox label', name: 'check', labelColor: 'black' })
 
     expect(screen.getByText(/checkbox label/i)).toHaveStyle({ color: '#030517' })
   })
@@ -53,7 +53,7 @@ describe('<Checkbox />', () => {
   })
 
   it('should dispatch onCheck when label status changes', async () => {
-    renderSut({ label: 'Checkbox', labelFor: 'Checkbox' })
+    renderSut({ label: 'Checkbox', name: 'Checkbox' })
 
     expect(document.body).toHaveFocus()
 

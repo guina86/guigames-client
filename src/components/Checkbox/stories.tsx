@@ -25,8 +25,8 @@ export const Default: Story<CheckboxProps> = (args) => (
       justifyContent: 'space-between'
     }}
   >
-    <Checkbox {...args} label="Action" labelFor="action" isChecked />
-    <Checkbox {...args} label="Adventure" labelFor="adventure" />
-    <Checkbox {...args} label="Strategy" labelFor="strategy" />
+    <Checkbox {...args} label="Action" name="action" isChecked />
+    <Checkbox {...args} label="Adventure" name="adventure" />
+    <Checkbox {...args} label="Strategy" name="strategy" />
   </div>
 )
