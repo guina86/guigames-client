@@ -8,7 +8,7 @@
     }
   ],
   "rules": {
-    "no-unused-vars": "error",
+    "no-unused-vars": "off",
     "import/no-anonymous-default-export": "off",
     "@testing-library/no-node-access": "off",
     "@testing-library/no-container": "off"
