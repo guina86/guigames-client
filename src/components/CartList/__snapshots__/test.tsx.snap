@@ -140,7 +140,7 @@ exports[`<CartList /> should render the heading 1`] = `
 }
 
 <div>
-  <main
+  <div
     class="c0"
   >
     <div
@@ -223,6 +223,6 @@ exports[`<CartList /> should render the heading 1`] = `
         R$ 430,00
       </span>
     </div>
-  </main>
+  </div>
 </div>
 `;

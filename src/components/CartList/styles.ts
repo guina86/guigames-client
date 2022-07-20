@@ -1,12 +1,35 @@
 import { tint } from 'polished'
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.main`
-  ${({ theme }) => css`
+import * as EmptyStyles from 'components/Empty/styles'
+
+type WrapperProps = {
+  isEmpty: boolean
+}
+
+export const Wrapper = styled.div<WrapperProps>`
+  ${({ theme, isEmpty }) => css`
     background: ${theme.colors.white};
     display: flex;
     flex-direction: column;
     align-self: flex-start;
+
+    ${isEmpty &&
+    css`
+      ${EmptyStyles.Wrapper} {
+        padding-bottom: ${theme.spacings.medium};
+      }
+      ${EmptyStyles.Description} {
+        color: ${theme.colors.black};
+        font-size: ${theme.font.sizes.medium};
+      }
+      ${EmptyStyles.Image} {
+        max-width: 20rem;
+      }
+      ${EmptyStyles.Title} {
+        font-size: ${theme.font.sizes.large};
+      }
+    `}
   `}
 `
 
