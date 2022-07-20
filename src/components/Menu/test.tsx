@@ -43,8 +43,8 @@ describe('<Menu />', () => {
   it('should show wishlit and account when logged in', () => {
     renderSut({ username: 'any_user' })
 
-    expect(screen.getByText(/wishlist/i)).toBeInTheDocument()
-    expect(screen.getByText(/my account/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/wishlist/i)).toHaveLength(2)
+    expect(screen.getAllByText(/my account/i)).toHaveLength(2)
     expect(screen.queryByText(/sign in/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/sign up/i)).not.toBeInTheDocument()
   })

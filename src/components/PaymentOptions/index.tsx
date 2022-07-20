@@ -28,20 +28,21 @@ const PaymentOptions = ({ cards, handlePayment }: PaymentOptionsProps) => {
         </Heading>
 
         <S.CardList>
-          {cards?.map((card) => (
-            <S.CardItem key={card.number}>
-              <S.CardInfo>
-                <img src={card.img} alt={card.flag} />
-                {card.number}
-              </S.CardInfo>
-              <Radio
-                name="credit-card"
-                id={card.number}
-                value={card.number}
-                onCheck={() => setChecked(true)}
-              />
-            </S.CardItem>
-          ))}
+          {!!cards &&
+            cards.map((card) => (
+              <S.CardItem key={card.number}>
+                <S.CardInfo>
+                  <img src={card.img} alt={card.flag} />
+                  {card.number}
+                </S.CardInfo>
+                <Radio
+                  name="credit-card"
+                  id={card.number}
+                  value={card.number}
+                  onCheck={() => setChecked(true)}
+                />
+              </S.CardItem>
+            ))}
 
           <S.AddCard role="button">
             <Add size={14} />
