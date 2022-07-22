@@ -5,11 +5,12 @@ export default {
   title: 'GameCard',
   component: GameCard,
   args: {
+    slug: 'defy-death',
     title: 'Defy death',
     developer: 'Butterscotch Shenanigans',
     img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/391730/header.jpg',
-    price: '105',
-    promotionalPrice: '50'
+    price: 105,
+    promotionalPrice: 50
   },
   argTypes: {
     onFav: { action: 'clicked' },

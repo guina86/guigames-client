@@ -1,9 +1,12 @@
 import { AddShoppingCart, Favorite, FavoriteBorder } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
+import Link from 'next/link'
+import formatPrice from 'utils/format-price'
 import * as S from './styles'
 
 export type GameCardProps = {
+  slug: string
   title: string
   developer: string
   img: string
@@ -17,6 +20,7 @@ export type GameCardProps = {
 }
 
 const GameCard = ({
+  slug,
   title,
   developer,
   img,
@@ -34,14 +38,18 @@ const GameCard = ({
         {ribbon}
       </Ribbon>
     )}
-    <S.ImageBox>
-      <img src={img} alt={title} />
-    </S.ImageBox>
+    <Link href={`game/${slug}`} passHref>
+      <S.ImageBox>
+        <img src={img} alt={title} />
+      </S.ImageBox>
+    </Link>
     <S.Content>
-      <S.Info>
-        <S.Title>{title}</S.Title>
-        <S.Developer>{developer}</S.Developer>
-      </S.Info>
+      <Link href={`game/${slug}`} passHref>
+        <S.Info>
+          <S.Title>{title}</S.Title>
+          <S.Developer>{developer}</S.Developer>
+        </S.Info>
+      </Link>
       <S.FavButton role="button" onClick={onFav}>
         {favorite ? (
           <Favorite aria-label="Remove from Wishlist" />
@@ -52,11 +60,11 @@ const GameCard = ({
       <S.BuyBox>
         {!!promotionalPrice && (
           <S.Price aria-label="Full price" isPromotional>
-            R${price},00
+            {formatPrice(price)}
           </S.Price>
         )}
         <S.Price aria-label={!!promotionalPrice ? 'Promotional price' : 'Full price'}>
-          R${promotionalPrice || price},00
+          {formatPrice(promotionalPrice || price)}
         </S.Price>
         <Button icon={<AddShoppingCart />} size="small" />
       </S.BuyBox>

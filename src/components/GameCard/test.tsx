@@ -3,6 +3,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import GameCard, { GameCardProps } from '.'
 
 const args = {
+  slug: 'defy-death',
   title: 'Defy death',
   developer: 'Butterscotch Shenanigans',
   img: '/img/crashlands.jpg',
@@ -16,10 +17,14 @@ describe('<GameCard />', () => {
   it('should render correctly', () => {
     renderSut()
 
+    expect(screen.getByRole('link', { name: args.title })).toHaveAttribute(
+      'href',
+      `/game/${args.slug}`
+    )
     expect(screen.getByRole('img')).toHaveAttribute('src', '/img/crashlands.jpg')
     expect(screen.getByRole('heading', { name: /defy death/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /butterscotch shenanigans/i })).toBeInTheDocument()
-    expect(screen.getByLabelText(/full price/i)).toHaveTextContent('$105,00')
+    expect(screen.getByLabelText(/full price/i)).toHaveTextContent('105')
     expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
   })
 
@@ -27,7 +32,7 @@ describe('<GameCard />', () => {
     renderSut()
 
     const price = screen.getByLabelText(/full price/i)
-    expect(price).toHaveTextContent('R$105,00')
+    expect(price).toHaveTextContent('105')
     expect(price).toHaveStyle({ backgroundColor: '#3CD3C1' })
     expect(price).not.toHaveStyle({ textDecoration: 'line-through' })
     expect(screen.queryByLabelText(/promotional price/i)).not.toBeInTheDocument()
@@ -38,13 +43,13 @@ describe('<GameCard />', () => {
 
     const fullPrice = screen.getByLabelText(/full price/i)
     const promotionalPrice = screen.getByLabelText(/promotional price/i)
-    expect(fullPrice).toHaveTextContent('R$105,00')
+    expect(fullPrice).toHaveTextContent('105')
     expect(fullPrice).toHaveStyle({
       textDecoration: 'line-through',
       color: '#8F8F8F'
     })
     expect(promotionalPrice).toBeInTheDocument()
-    expect(promotionalPrice).toHaveTextContent('R$55,00')
+    expect(promotionalPrice).toHaveTextContent('55')
   })
 
   it('should render a filled Favorite icon when favorite is true', () => {

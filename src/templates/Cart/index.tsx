@@ -32,7 +32,7 @@ const Cart = ({
           My cart
         </Heading>
 
-        {items.length > 0 ? (
+        {!!items && items.length > 0 ? (
           <S.Content>
             <CartList items={items} total={total} />
             <PaymentOptions cards={cards} handlePayment={handlePayment} />

@@ -60,6 +60,7 @@ export const ButtonsWrapper = styled.div`
         > button {
           width: initial;
           margin-bottom: 0;
+          margin-left: ${theme.spacings.xxsmall};
         }
       `}
   `}

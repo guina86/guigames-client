@@ -220,6 +220,7 @@ exports[`<GameInfo /> should render game information 1`] = `
   .c5 > button {
     width: initial;
     margin-bottom: 0;
+    margin-left: 0.8rem;
   }
 }
 
