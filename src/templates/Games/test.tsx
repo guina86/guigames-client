@@ -34,10 +34,4 @@ describe('<Games />', () => {
     expect(screen.getAllByTestId('Mock GameCard')).toHaveLength(6)
     expect(screen.getByRole('button', { name: /show more/i })).toBeInTheDocument()
   })
-
-  it('should render empty when no games passed', () => {
-    renderSut({ games: undefined })
-
-    expect(screen.getByTestId('Mock Empty')).toBeInTheDocument()
-  })
 })
