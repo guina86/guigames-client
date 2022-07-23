@@ -43,8 +43,10 @@ const args = {
   gallery: galleryMock,
   description: '<div><p>Mock Description</p></div>',
   details: gameDetailsmock,
+  upcomingTitle: 'Upcoming games',
   upcomingGames: gamesMock,
   upcomingHighlight: highlightMock,
+  recommendedTitle: 'You may like these games',
   recommendedGames: gamesMock
 }
 

@@ -6,6 +6,7 @@ import highlightMock from 'components/Highlight/mock'
 
 const args = {
   games: gamesMock,
+  recommendedTitle: 'You may like these games',
   recommendedGames: gamesMock,
   recommendedHighlight: highlightMock
 }

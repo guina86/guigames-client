@@ -1,17 +1,8 @@
-import { gql, useQuery } from '@apollo/client'
 import Home, { HomeTemplateProps } from 'templates/Home'
 import { initializeApollo } from 'utils/apollo'
 import { GetHome, GetHomeVariables } from 'graphql/generated/GetHome'
 import { GET_HOME } from 'graphql/queries/home'
 import { bannerMapper, gamesMapper, highlightMapper } from 'utils/mappers'
-
-const GET_GAMES = gql`
-  query getGames {
-    games {
-      name
-    }
-  }
-`
 
 export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />

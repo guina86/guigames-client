@@ -1,7 +1,7 @@
 import { GetGames_games } from 'graphql/generated/GetGames'
 import { GetHome_banners, GetHome_sections_newGames_highlight } from 'graphql/generated/GetHome'
 
-export const imageMapper = (url: string) => `http://localhost:1337${url}`
+export const imageMapper = (url: string | null | undefined) => url && `http://localhost:1337${url}`
 
 export const bannerMapper = (banners: GetHome_banners[]) =>
   banners.map((banner) => ({

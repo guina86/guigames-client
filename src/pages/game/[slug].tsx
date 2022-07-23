@@ -9,6 +9,11 @@ import { GET_GAMES, GET_GAME_BY_SLUG } from 'graphql/queries/games'
 import { GetGames, GetGamesVariables } from 'graphql/generated/GetGames'
 import { GetGameBySlug, GetGameBySlugVariables } from 'graphql/generated/GetGameBySlug'
 import { GetStaticProps } from 'next'
+import { GetRecommended } from 'graphql/generated/GetRecommended'
+import { GET_RECOMMENDED } from 'graphql/queries/recommended'
+import { gamesMapper, highlightMapper, imageMapper } from 'utils/mappers'
+import { GetUpcoming } from 'graphql/generated/GetUpcoming'
+import { GET_UPCOMING } from 'graphql/queries/upcomming'
 
 const apolloClient = initializeApollo()
 
@@ -34,28 +39,39 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { data } = await apolloClient.query<GetGameBySlug, GetGameBySlugVariables>({
+  // Get game data
+  const {
+    data: { games }
+  } = await apolloClient.query<GetGameBySlug, GetGameBySlugVariables>({
     query: GET_GAME_BY_SLUG,
     variables: { slug: `${params?.slug}` }
   })
-
-  if (data.games.length === 0) {
+  if (games.length === 0) {
     return { notFound: true }
   }
+  const game = games[0]
 
-  const game = data.games[0]
+  // Get recommended data
+  const {
+    data: { recommended }
+  } = await apolloClient.query<GetRecommended>({ query: GET_RECOMMENDED })
 
+  // Get upcoming data
+  const TODAY = new Date().toISOString().slice(0, 10)
+  const {
+    data: { showcase, upcomingGames }
+  } = await apolloClient.query<GetUpcoming>({ query: GET_UPCOMING, variables: { date: TODAY } })
   return {
     props: {
       revalidate: 60,
-      cover: `http://localhost:1337${game.cover?.src}`,
+      cover: imageMapper(game.cover?.src),
       gameInfo: {
         title: game.name,
         price: game.price,
         description: game.short_description
       },
       gallery: game.gallery.map((img) => ({
-        src: `http://localhost:1337${img.src}`,
+        src: imageMapper(img.src),
         label: img.label
       })),
       description: game.description,
@@ -67,9 +83,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         rating: game.rating,
         genres: game.categories.map((category) => category.name)
       },
-      upcomingGames: gamesMock,
-      upcomingHighlight: highlightMock,
-      recommendedGames: gamesMock
+      upcomingTitle: showcase?.upcomingGames?.title,
+      upcomingGames: gamesMapper(upcomingGames),
+      upcomingHighlight: highlightMapper(showcase?.upcomingGames?.highlight),
+      recommendedTitle: recommended?.section?.title,
+      recommendedGames: gamesMapper(recommended?.section?.games)
     }
   }
 }
