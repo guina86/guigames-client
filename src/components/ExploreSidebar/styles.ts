@@ -43,7 +43,7 @@ export const Overlay = styled.div`
 export const Category = styled.div`
   ${({ theme }) => css`
     & > div:not(:last-of-type) {
-      margin-bottom: ${theme.spacings.xxsmall};
+      margin-bottom: ${theme.spacings.xsmall};
     }
     & + div {
       border-top: 0.1rem solid ${rgba(theme.colors.gray, 0.2)};
