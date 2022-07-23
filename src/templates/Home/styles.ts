@@ -36,5 +36,3 @@ export const SectionNews = styled.div`
     `}
   `}
 `
-
-export const SectionUpcoming = styled.div``

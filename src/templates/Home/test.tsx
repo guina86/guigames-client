@@ -8,14 +8,17 @@ import highlightMock from 'components/Highlight/mock'
 
 const props = {
   banners: bannersMock,
-  newsGames: [gamesMock[0]],
+  newGames: [gamesMock[0]],
+  newGamesTitle: 'New Games',
   mostPopularHighlight: highlightMock,
   mostPopularGames: [gamesMock[0]],
+  mostPopularGamesTitle: 'Popular Games',
   upcomingGames: [gamesMock[0]],
   upcomingHighlight: highlightMock,
-  upcomingMoreGames: [gamesMock[0]],
+  upcomingGamesTitle: 'Upcoming Games',
   freeGames: [gamesMock[0]],
-  freeHighlight: highlightMock
+  freeHighlight: highlightMock,
+  freeGamesTitle: 'Free Games'
 }
 
 jest.mock('templates/Base', () => ({
@@ -40,6 +43,6 @@ describe('<Home />', () => {
     renderSut()
 
     expect(screen.getByTestId('Mock BannerSlider')).toBeInTheDocument()
-    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(5)
+    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(4)
   })
 })

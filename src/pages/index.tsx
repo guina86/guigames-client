@@ -1,9 +1,9 @@
 import { gql, useQuery } from '@apollo/client'
 import Home, { HomeTemplateProps } from 'templates/Home'
-import bannersMock from 'components/BannerSlider/mock'
-import gamesMock from 'components/GameCardSlider/mock'
-import highlightMock from 'components/Highlight/mock'
 import { initializeApollo } from 'utils/apollo'
+import { GetHome, GetHomeVariables } from 'graphql/generated/GetHome'
+import { GET_HOME } from 'graphql/queries/home'
+import { bannerMapper, gamesMapper, highlightMapper } from 'utils/mappers'
 
 const GET_GAMES = gql`
   query getGames {
@@ -17,24 +17,33 @@ export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const apolloClient = initializeApollo()
+  const TODAY = new Date().toISOString().slice(0, 10)
 
-  const { data } = await apolloClient.query({ query: GET_GAMES })
+  const {
+    data: { banners, newGames, upcomingGames, freeGames, sections }
+  } = await apolloClient.query<GetHome, GetHomeVariables>({
+    query: GET_HOME,
+    variables: { date: TODAY }
+  })
 
   return {
     props: {
-      data: data,
+      revalidate: 60,
       initialApolloState: apolloClient.cache.extract(),
-      banners: bannersMock,
-      newsGames: gamesMock,
-      mostPopularHighlight: highlightMock,
-      mostPopularGames: gamesMock,
-      upcomingGames: gamesMock,
-      upcomingHighlight: highlightMock,
-      upcomingMoreGames: gamesMock,
-      freeGames: gamesMock,
-      freeHighlight: highlightMock
+      banners: bannerMapper(banners),
+      newGamesTitle: sections?.newGames?.title,
+      newGames: gamesMapper(newGames),
+      mostPopularGamesTitle: sections?.popularGames?.title,
+      mostPopularHighlight: highlightMapper(sections?.popularGames?.highlight),
+      mostPopularGames: gamesMapper(sections!.popularGames!.games),
+      upcomingGamesTitle: sections?.upcomingGames?.title,
+      upcomingGames: gamesMapper(upcomingGames),
+      upcomingHighlight: highlightMapper(sections?.upcomingGames?.highlight),
+      freeGamesTitle: sections?.freeGames?.title,
+      freeGames: gamesMapper(freeGames),
+      freeHighlight: highlightMapper(sections?.freeGames?.highlight)
     }
   }
 }
