@@ -42,6 +42,7 @@ export interface GetRecommended_recommended_section_games_developers {
 
 export interface GetRecommended_recommended_section_games {
   __typename: "Game";
+  id: string;
   slug: string;
   name: string;
   cover: GetRecommended_recommended_section_games_cover | null;

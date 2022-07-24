@@ -19,6 +19,7 @@ export interface GetGames_games_developers {
 
 export interface GetGames_games {
   __typename: "Game";
+  id: string;
   slug: string;
   name: string;
   cover: GetGames_games_cover | null;
