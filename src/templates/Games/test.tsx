@@ -7,6 +7,7 @@ import userEvent from '@testing-library/user-event'
 import { fetchMoreMock, gamesMock, noGamesMock } from './mock'
 import { GameCardProps } from 'components/GameCard'
 import { makeApolloCache } from 'utils/apolloCache'
+import React from 'react'
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 const push = jest.fn()
@@ -35,6 +36,10 @@ jest.mock('components/GameCard', () => ({
 jest.mock('components/Loading', () => ({
   __esModule: true,
   default: () => <div data-testid="Mock Loading"></div>
+}))
+jest.mock('next/link', () => ({
+  __esModule: true,
+  default: ({ children }: { children: React.ReactNode }) => <div>{children}</div>
 }))
 
 type SutProps = {
