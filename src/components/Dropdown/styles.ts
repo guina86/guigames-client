@@ -22,7 +22,7 @@ export const Wrapper = styled.main<WrapperProps>`
     position: relative;
     width: max-content;
 
-    ${Content} {
+    ${Content}, ${Overlay} {
       ${isOpen ? wrapperModifier.open() : wrapperModifier.close()}
     }
   `}
@@ -36,6 +36,17 @@ export const Title = styled.div`
     display: flex;
     align-items: center;
     padding-right: 2.4rem;
+    z-index: ${theme.layers.alwaysOnTop};
+  `}
+`
+
+export const Overlay = styled.div`
+  ${({ theme }) => css`
+    position: fixed;
+    inset: 0;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: ${theme.layers.overlay};
   `}
 `
 
@@ -49,6 +60,7 @@ export const Content = styled.div`
     position: absolute;
     right: 0;
     transition: transform 0.2s ease-in, opacity ${theme.transition.default};
+    z-index: ${theme.layers.alwaysOnTop};
 
     &::before {
       content: '';
