@@ -19,24 +19,28 @@ export const bannerMapper = (banners: GetHome_banners[]) =>
   }))
 
 export const gamesMapper = (games: GetGames_games[] | null | undefined) =>
-  games &&
-  games.map((game?) => ({
-    title: game.name,
-    slug: game.slug,
-    developer: game.developers[0].name,
-    img: imageMapper(game.cover?.url!),
-    price: game.price
-  }))
+  games
+    ? games.map((game?) => ({
+        id: game.id,
+        title: game.name,
+        slug: game.slug,
+        developer: game.developers[0].name,
+        img: imageMapper(game.cover?.url!),
+        price: game.price
+      }))
+    : []
 
 export const highlightMapper = (
   highlight: GetHome_sections_newGames_highlight | null | undefined
 ) =>
-  highlight && {
-    title: highlight.title,
-    subtitle: highlight.subtitle,
-    backgroundImage: imageMapper(highlight.background?.url!),
-    floatImage: imageMapper(highlight.floatImage?.url!),
-    alignment: highlight.alignment,
-    buttonLabel: highlight.buttonLabel,
-    buttonLink: highlight.buttonLink
-  }
+  highlight
+    ? {
+        title: highlight.title,
+        subtitle: highlight.subtitle,
+        backgroundImage: imageMapper(highlight.background?.url!),
+        floatImage: imageMapper(highlight.floatImage?.url!),
+        alignment: highlight.alignment,
+        buttonLabel: highlight.buttonLabel,
+        buttonLink: highlight.buttonLink
+      }
+    : {}
