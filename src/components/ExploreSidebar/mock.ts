@@ -1,4 +1,4 @@
-import { Category } from '.'
+import { ItemProps } from '.'
 
 export default [
   {
@@ -48,8 +48,8 @@ export default [
     ]
   },
   {
-    title: 'System',
-    name: 'systema',
+    title: 'Platforms',
+    name: 'platforms',
     type: 'checkbox',
     fields: [
       {
@@ -105,4 +105,4 @@ export default [
       }
     ]
   }
-] as Category[]
+] as ItemProps[]

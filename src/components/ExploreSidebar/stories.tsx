@@ -9,7 +9,7 @@ export default {
     categories: categoriesMock,
     initialValues: {
       'under-200': true,
-      windows: true,
+      platforms: ['windows', 'linux'],
       sort_by: 'low-to-high',
       action: true
     },
