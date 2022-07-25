@@ -22,6 +22,14 @@ describe('<CartList />', () => {
     expect(screen.getByText(/buy it now/i)).toBeInTheDocument()
   })
 
+  it('should render the loading', () => {
+    render(<CartList hasButton />, {
+      cartProviderProps: { items: itemsMock, total: '$430.00', loading: true }
+    })
+
+    expect(screen.getByLabelText(/loading indicator/i)).toBeInTheDocument()
+  })
+
   it('should render empty if there are no games', () => {
     render(<CartList />)
 

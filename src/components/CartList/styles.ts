@@ -33,6 +33,11 @@ export const Wrapper = styled.div<WrapperProps>`
   `}
 `
 
+export const GamesList = styled.div`
+  max-height: 40rem;
+  overflow-y: auto;
+`
+
 export const Footer = styled.div`
   ${({ theme }) => css`
     background: ${tint(0.2, theme.colors.lightGray)};
@@ -49,5 +54,16 @@ export const Footer = styled.div`
 export const Total = styled.span`
   ${({ theme }) => css`
     color: ${theme.colors.primary};
+  `}
+`
+
+export const LoadingWrapper = styled.div`
+  ${({ theme }) => css`
+    background: ${theme.colors.white};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40rem;
+    min-width: 56rem;
   `}
 `
