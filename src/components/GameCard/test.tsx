@@ -3,6 +3,7 @@ import { render, screen } from 'utils/tests'
 import GameCard, { GameCardProps } from '.'
 
 const args = {
+  id: '1',
   slug: 'defy-death',
   title: 'Defy death',
   developer: 'Butterscotch Shenanigans',
