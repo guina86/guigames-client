@@ -5,15 +5,14 @@ import itemsMock from './mock'
 export default {
   title: 'CartList',
   component: CartList,
-  args: {
-    items: itemsMock,
-    total: 'R$ 430,00'
-  },
   argTypes: {
     items: {
       table: {
         disable: true
       }
+    },
+    cartContextValue: {
+      table: { disable: true }
     }
   },
   parameters: {
@@ -23,20 +22,29 @@ export default {
   }
 } as Meta
 
-export const Default: Story<CartListProps> = (args) => (
+export const Default: Story = (args) => (
   <div style={{ maxWidth: 800 }}>
     <CartList {...args} />
   </div>
 )
+Default.args = {
+  total: '$430.00',
+  cartContextValue: { items: itemsMock }
+}
 
-export const WithButton: Story<CartListProps> = (args) => (
+export const WithButton: Story = (args) => (
   <div style={{ maxWidth: 800 }}>
-    <CartList hasButton {...args} />
+    <CartList {...args} />
   </div>
 )
+WithButton.args = {
+  hasButton: true,
+  total: '$430.00',
+  cartContextValue: { items: itemsMock }
+}
 
-export const Empty: Story<CartListProps> = (args) => (
+export const Empty: Story = (args) => (
   <div style={{ maxWidth: 800 }}>
-    <CartList {...args} hasButton items={[]} />
+    <CartList {...args} />
   </div>
 )

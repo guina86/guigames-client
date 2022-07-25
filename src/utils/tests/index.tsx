@@ -5,16 +5,18 @@ import { ThemeProvider } from 'styled-components'
 import theme from 'styles/theme'
 
 type CustomRenderProps = {
-  cartProviderProps?: CartContextData
+  cartProviderProps?: Partial<CartContextData>
 } & Omit<RenderOptions, 'queries'>
 
 const customRender = (
   ui: ReactElement,
-  { cartProviderProps = CartContextDefaultValues, ...renderOptions }: CustomRenderProps = {}
+  { cartProviderProps, ...renderOptions }: CustomRenderProps = {}
 ) =>
   render(
     <ThemeProvider theme={theme}>
-      <CartContext.Provider value={cartProviderProps}>{ui}</CartContext.Provider>
+      <CartContext.Provider value={{ ...CartContextDefaultValues, ...cartProviderProps }}>
+        {ui}
+      </CartContext.Provider>
     </ThemeProvider>,
     renderOptions
   )

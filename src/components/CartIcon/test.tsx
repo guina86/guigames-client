@@ -1,8 +1,10 @@
+import { CartContextData, CartContextDefaultValues } from 'hooks/use-cart'
 import { render, screen } from 'utils/tests'
-import CartIcon, { CartIconProps } from '.'
+import CartIcon from '.'
 
 describe('<CartIcon />', () => {
-  const renderSut = (props?: CartIconProps) => render(<CartIcon {...props} />)
+  const renderSut = (props?: Partial<CartContextData>) =>
+    render(<CartIcon />, { cartProviderProps: { ...props } })
 
   it('should render without badge', () => {
     renderSut()

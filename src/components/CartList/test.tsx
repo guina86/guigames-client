@@ -3,26 +3,27 @@ import CartList, { CartListProps } from '.'
 import itemsMock from './mock'
 
 describe('<CartList />', () => {
-  const renderSut = (props?: Partial<CartListProps>) =>
-    render(<CartList items={itemsMock} total="R$ 430,00" {...props} />)
-
-  it('should render the CartList', () => {
-    const { container } = renderSut()
+  it('should render the heading', () => {
+    const { container } = render(<CartList />, {
+      cartProviderProps: { items: itemsMock, total: '$430.00' }
+    })
 
     expect(screen.getAllByRole('heading')).toHaveLength(2)
-    expect(screen.getByText('R$ 430,00')).toHaveStyle({ color: '#F231A5' })
+    expect(screen.getByText('$430.00')).toHaveStyle({ color: '#F231A5' })
 
     expect(container).toMatchSnapshot()
   })
 
   it('should render the button', () => {
-    renderSut({ hasButton: true })
+    render(<CartList hasButton />, {
+      cartProviderProps: { items: itemsMock, total: '$430.00' }
+    })
 
     expect(screen.getByText(/buy it now/i)).toBeInTheDocument()
   })
 
   it('should render empty if there are no games', () => {
-    renderSut({ items: undefined })
+    render(<CartList />)
 
     expect(screen.getByText(/your cart is empty/i)).toBeInTheDocument()
     expect(screen.queryByText('R$ 430,00')).not.toBeInTheDocument()

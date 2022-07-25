@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CartList /> should render the CartList 1`] = `
+exports[`<CartList /> should render the heading 1`] = `
 .c1 {
   padding: 1.6rem;
   border-bottom: 0.1rem solid #EAEAEA;
@@ -172,7 +172,7 @@ exports[`<CartList /> should render the CartList 1`] = `
           <div
             class="c7"
           >
-            R$ 215,00
+            $215.00
           </div>
         </div>
       </div>
@@ -206,7 +206,7 @@ exports[`<CartList /> should render the CartList 1`] = `
           <div
             class="c7"
           >
-            R$ 215,00
+            $215.00
           </div>
         </div>
       </div>
@@ -220,7 +220,7 @@ exports[`<CartList /> should render the CartList 1`] = `
       <span
         class="c9"
       >
-        R$ 430,00
+        $430.00
       </span>
     </div>
   </div>
