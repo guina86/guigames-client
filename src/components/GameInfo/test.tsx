@@ -1,10 +1,9 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import GameInfo from '.'
 import gameMock from './mock'
 
 describe('<GameInfo />', () => {
-  const renderSut = (): RenderResult => renderWithTheme(<GameInfo {...gameMock} />)
+  const renderSut = () => render(<GameInfo {...gameMock} />)
 
   it('should render game information', () => {
     const { container } = renderSut()

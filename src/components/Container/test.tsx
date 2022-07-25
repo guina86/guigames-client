@@ -1,21 +1,19 @@
 /* eslint-disable testing-library/no-node-access */
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-import theme from 'styles/theme'
+import { render, screen } from 'utils/tests'
 import { Container } from '.'
 
 describe('<Container />', () => {
-  const renderSut = (): RenderResult =>
-    renderWithTheme(
+  const renderSut = () =>
+    render(
       <Container data-testid="container">
         <span>Lorem ipsum dolor sit amet.</span>
       </Container>
     )
-  it('should render the heading', () => {
+  it('should render the Container', () => {
     renderSut()
 
     const container = screen.getByTestId('container')
-    expect(container).toHaveStyleRule('max-width', theme.grid.container)
+    expect(container).toHaveStyleRule('max-width', '130rem')
     expect(container).toMatchInlineSnapshot(`
       .c0 {
         width: 100%;

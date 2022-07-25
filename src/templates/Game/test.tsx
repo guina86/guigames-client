@@ -1,9 +1,7 @@
 /* eslint-disable testing-library/no-node-access */
 import 'match-media-mock'
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import Game, { GameTemplateProps } from '.'
-
 import galleryMock from 'components/Gallery/mock'
 import gameInfoMock from 'components/GameInfo/mock'
 import gameDetailsmock from 'components/GameDetails/mock'
@@ -51,8 +49,7 @@ const args = {
 }
 
 describe('<Game />', () => {
-  const renderSut = (props?: Partial<GameTemplateProps>): RenderResult =>
-    renderWithTheme(<Game {...args} {...props} />)
+  const renderSut = (props?: Partial<GameTemplateProps>) => render(<Game {...args} {...props} />)
 
   it('should render the components', () => {
     renderSut()

@@ -1,10 +1,9 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import Heading, { HeadingProps } from '.'
 
 describe('<Heading />', () => {
-  const renderSut = (props?: Omit<HeadingProps, 'children'>): RenderResult =>
-    renderWithTheme(<Heading {...props}>Gui Games</Heading>)
+  const renderSut = (props?: Omit<HeadingProps, 'children'>) =>
+    render(<Heading {...props}>Gui Games</Heading>)
 
   it('should render a white heading by default', () => {
     renderSut()

@@ -1,5 +1,4 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import Banner, { BannerProps } from '.'
 
 const args = {
@@ -11,8 +10,7 @@ const args = {
 }
 
 describe('<Banner />', () => {
-  const renderSut = (props?: Partial<BannerProps>): RenderResult =>
-    renderWithTheme(<Banner {...args} {...props} />)
+  const renderSut = (props?: Partial<BannerProps>) => render(<Banner {...args} {...props} />)
 
   it('should render the banner', () => {
     const { container } = renderSut()

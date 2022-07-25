@@ -1,6 +1,4 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render, screen } from 'utils/tests'
 import Empty, { EmptyProps } from '.'
 
 const args = {
@@ -10,10 +8,9 @@ const args = {
 }
 
 describe('<Empty />', () => {
-  const renderSut = (props?: Partial<EmptyProps>): RenderResult =>
-    renderWithTheme(<Empty {...args} {...props} />)
+  const renderSut = (props?: Partial<EmptyProps>) => render(<Empty {...args} {...props} />)
 
-  it('should render the heading', () => {
+  it('should render the Empty', () => {
     const { container } = renderSut()
 
     expect(

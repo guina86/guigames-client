@@ -1,12 +1,10 @@
 /* eslint-disable testing-library/no-node-access */
-import { render, RenderResult, screen, waitFor } from '@testing-library/react'
+import { render, screen } from 'utils/tests'
 import userEvent from '@testing-library/user-event'
-import { renderWithTheme } from 'utils/tests/helpers'
-
 import UserDropdown from '.'
 
 describe('<UserDropdown />', () => {
-  const renderSut = (): RenderResult => renderWithTheme(<UserDropdown username="Leandro" />)
+  const renderSut = () => render(<UserDropdown username="Leandro" />)
 
   it('should render the User dropdown', async () => {
     renderSut()

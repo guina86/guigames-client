@@ -1,12 +1,11 @@
 /* eslint-disable testing-library/no-node-access */
-import { render, RenderResult, screen, within } from '@testing-library/react'
 import theme from 'styles/theme'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 
 import Loading, { LoadingProps } from '.'
 
 describe('<Loading />', () => {
-  const renderSut = (props?: LoadingProps): RenderResult => renderWithTheme(<Loading {...props} />)
+  const renderSut = (props?: LoadingProps) => render(<Loading {...props} />)
 
   it('should render the Loading with primary color', () => {
     renderSut()

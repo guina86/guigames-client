@@ -1,11 +1,10 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import React from 'react'
+import { render, screen } from 'utils/tests'
 import Cart, { CartTemplateProps } from '.'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 import itemsMock from 'components/CartList/mock'
 import cardsMock from 'components/PaymentOptions/mock'
-import React from 'react'
 
 const args = {
   items: itemsMock,
@@ -40,8 +39,7 @@ jest.mock('components/Empty', () => ({
 }))
 
 describe('<Cart />', () => {
-  const renderSut = (props?: Partial<CartTemplateProps>): RenderResult =>
-    renderWithTheme(<Cart {...args} {...props} />)
+  const renderSut = (props?: Partial<CartTemplateProps>) => render(<Cart {...args} {...props} />)
 
   it('should render the heading', () => {
     renderSut()

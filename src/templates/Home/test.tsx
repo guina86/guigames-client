@@ -1,12 +1,11 @@
 import 'match-media-mock'
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import Home from '.'
 import bannersMock from 'components/BannerSlider/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 
-const props = {
+const args = {
   banners: bannersMock,
   newGames: [gamesMock[0]],
   newGamesTitle: 'New Games',
@@ -37,7 +36,7 @@ jest.mock('components/BannerSlider', () => ({
 }))
 
 describe('<Home />', () => {
-  const renderSut = (): RenderResult => renderWithTheme(<Home {...props} />)
+  const renderSut = () => render(<Home {...args} />)
 
   it('should render the Home properly', () => {
     renderSut()

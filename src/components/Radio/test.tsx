@@ -1,10 +1,9 @@
-import { RenderResult, screen, waitFor } from '@testing-library/react'
+import { render, screen } from 'utils/tests'
 import userEvent from '@testing-library/user-event'
-import { renderWithTheme } from 'utils/tests/helpers'
 import Radio, { RadioProps } from '.'
 
 describe('<Radio />', () => {
-  const renderSut = (props?: RadioProps): RenderResult => renderWithTheme(<Radio {...props} />)
+  const renderSut = (props?: RadioProps) => render(<Radio {...props} />)
 
   it('should render with label (white)', () => {
     renderSut({ label: 'Radio', value: 'any_value' })
@@ -32,11 +31,9 @@ describe('<Radio />', () => {
 
     expect(onCheck).not.toHaveBeenCalled()
 
-    userEvent.click(screen.getByLabelText('Radio'))
+    await userEvent.click(screen.getByLabelText('Radio'))
 
-    await waitFor(() => {
-      expect(onCheck).toHaveBeenCalledTimes(1)
-    })
+    expect(onCheck).toHaveBeenCalledTimes(1)
     expect(onCheck).toHaveBeenCalledWith('any_value')
   })
 

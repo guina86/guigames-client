@@ -1,8 +1,8 @@
-import { render, RenderResult, screen } from '@testing-library/react'
+import { render, screen } from 'utils/tests'
 import MediaMatch from '.'
 
 describe('<MediaMatch />', () => {
-  const renderSut = (): RenderResult =>
+  const renderSut = () =>
     render(
       <>
         <MediaMatch data-testid="desktop" greaterThan="medium">

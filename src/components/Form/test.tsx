@@ -1,10 +1,9 @@
-import { RenderResult } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/tests'
 import { FormLink, FormWrapper } from '.'
 
 describe('<Form />', () => {
-  const renderSut = (): RenderResult =>
-    renderWithTheme(
+  const renderSut = () =>
+    render(
       <FormWrapper>
         <FormLink>
           My<a href="#">link</a>
@@ -12,7 +11,7 @@ describe('<Form />', () => {
       </FormWrapper>
     )
 
-  it('should render the heading', () => {
+  it('should render the Form', () => {
     const { container } = renderSut()
 
     expect(container).toMatchInlineSnapshot(`

@@ -1,10 +1,9 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import Ribbon, { RibbonProps } from '.'
 
 describe('<Ribbon />', () => {
-  const renderSut = (props?: Omit<RibbonProps, 'children'>): RenderResult =>
-    renderWithTheme(<Ribbon {...props}>Best Seller</Ribbon>)
+  const renderSut = (props?: Omit<RibbonProps, 'children'>) =>
+    render(<Ribbon {...props}>Best Seller</Ribbon>)
 
   it('should render the text correctly', () => {
     renderSut()

@@ -1,13 +1,11 @@
 /* eslint-disable testing-library/no-node-access */
-import { RenderResult, screen, waitFor } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import userEvent from '@testing-library/user-event'
 import { Email } from '@styled-icons/material-outlined'
 import TextField, { TextFieldProps } from '.'
 
 describe('<TextField />', () => {
-  const renderSut = (props?: TextFieldProps): RenderResult =>
-    renderWithTheme(<TextField {...props} />)
+  const renderSut = (props?: TextFieldProps) => render(<TextField {...props} />)
 
   it('should render with label', () => {
     renderSut({ label: 'Label', name: 'Label' })
@@ -62,11 +60,10 @@ describe('<TextField />', () => {
 
     const input = screen.getByRole('textbox')
     const text = 'This is my new text'
-    userEvent.type(input, text)
+    await userEvent.type(input, text)
 
-    await waitFor(() => {
-      expect(input).toHaveValue(text)
-    })
+    expect(input).toHaveValue(text)
+
     expect(onInput).toHaveBeenCalledTimes(text.length)
     expect(onInput).toHaveBeenCalledWith(text)
   })

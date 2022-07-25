@@ -1,13 +1,11 @@
 import 'match-media-mock'
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import highlightMock from 'components/Highlight/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import Showcase, { ShowcaseProps } from '.'
 
 describe('<Showcase />', () => {
-  const renderSut = (props?: ShowcaseProps): RenderResult =>
-    renderWithTheme(<Showcase {...props} />)
+  const renderSut = (props?: ShowcaseProps) => render(<Showcase {...props} />)
 
   it('should render a complete Showcase', () => {
     renderSut({ title: 'any_title', highlight: highlightMock, games: [gamesMock[0]] })

@@ -1,9 +1,8 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import Footer from '.'
 
 describe('<Footer />', () => {
-  const renderSut = (): RenderResult => renderWithTheme(<Footer contentTestId="content" />)
+  const renderSut = () => render(<Footer contentTestId="content" />)
 
   it('should render the footer', () => {
     const { container } = renderSut()

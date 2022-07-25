@@ -1,12 +1,11 @@
 /* eslint-disable testing-library/no-node-access */
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import TextContent, { TextContentprops } from '.'
 import contentMock from './mock'
 
 describe('<TextContent />', () => {
-  const renderSut = (props?: Partial<TextContentprops>): RenderResult =>
-    renderWithTheme(<TextContent {...contentMock} {...props} />)
+  const renderSut = (props?: Partial<TextContentprops>) =>
+    render(<TextContent {...contentMock} {...props} />)
 
   it('should render the title and content', () => {
     renderSut()

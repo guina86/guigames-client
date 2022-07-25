@@ -1,14 +1,11 @@
-import { RenderResult, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { css } from 'styled-components'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen, waitFor } from 'utils/tests'
 import ExploreSidebar, { ExploreSidebarProps } from '.'
 import categoriesMock from './mock'
-import { Overlay } from './styles'
 
 describe('<ExploreSidebar />', () => {
-  const renderSut = (props?: Partial<ExploreSidebarProps>): RenderResult =>
-    renderWithTheme(<ExploreSidebar filterItems={categoriesMock} onFilter={jest.fn} {...props} />)
+  const renderSut = (props?: Partial<ExploreSidebarProps>) =>
+    render(<ExploreSidebar filterItems={categoriesMock} onFilter={jest.fn} {...props} />)
 
   it('should render the sidebar', () => {
     renderSut()

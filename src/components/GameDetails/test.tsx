@@ -1,11 +1,10 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import GameDetails, { GameDetailsProps } from '.'
 import gameMock from './mock'
 
 describe('<GameDetails />', () => {
-  const renderSut = (props?: Partial<GameDetailsProps>): RenderResult =>
-    renderWithTheme(<GameDetails {...gameMock} {...props} />)
+  const renderSut = (props?: Partial<GameDetailsProps>) =>
+    render(<GameDetails {...gameMock} {...props} />)
 
   it('should render the blocks', () => {
     renderSut()

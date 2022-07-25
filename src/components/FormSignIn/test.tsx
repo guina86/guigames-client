@@ -1,9 +1,8 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import FormSignIn from '.'
 
 describe('<FormSignIn />', () => {
-  const renderSut = (): RenderResult => renderWithTheme(<FormSignIn />)
+  const renderSut = () => render(<FormSignIn />)
 
   it('should render the Form', () => {
     const { container } = renderSut()

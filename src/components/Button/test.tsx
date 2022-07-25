@@ -1,11 +1,9 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
 import { AddShoppingCart } from '@styled-icons/material-outlined'
+import { render, screen } from 'utils/tests'
 import Button, { ButtonProps } from '.'
 
 describe('<Button />', () => {
-  const renderSut = (props?: ButtonProps): RenderResult =>
-    renderWithTheme(<Button {...props}>Buy now</Button>)
+  const renderSut = (props?: ButtonProps) => render(<Button {...props}>Buy now</Button>)
 
   it('should render medium size by default', () => {
     const { container } = renderSut()

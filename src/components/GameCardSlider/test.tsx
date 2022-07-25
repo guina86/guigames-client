@@ -1,12 +1,11 @@
 import 'match-media-mock'
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
 import GameCardSlider, { GameCardSliderProps } from '.'
 import items from './mock'
+import { render, screen } from 'utils/tests'
 
 describe('<GameCardSlider />', () => {
-  const renderSut = (props?: Pick<GameCardSliderProps, 'color'>): RenderResult =>
-    renderWithTheme(<GameCardSlider items={items} {...props} />)
+  const renderSut = (props?: Pick<GameCardSliderProps, 'color'>) =>
+    render(<GameCardSlider items={items} {...props} />)
 
   it('should render with 4 active items', () => {
     const { container } = renderSut()

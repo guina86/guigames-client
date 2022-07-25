@@ -1,9 +1,9 @@
-import { fireEvent, RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
+import userEvent from '@testing-library/user-event'
 import Menu, { MenuProps } from '.'
 
 describe('<Menu />', () => {
-  const renderSut = (props?: MenuProps): RenderResult => renderWithTheme(<Menu {...props} />)
+  const renderSut = (props?: MenuProps) => render(<Menu {...props} />)
 
   it('should render the menu', () => {
     renderSut()
@@ -14,7 +14,7 @@ describe('<Menu />', () => {
     expect(screen.getByLabelText(/open shopping cart/i)).toBeInTheDocument()
   })
 
-  it('should handel open/close mobile menu', () => {
+  it('should handel open/close mobile menu', async () => {
     renderSut()
 
     const fullMenuElement = screen.getByRole('navigation', { hidden: true })
@@ -22,11 +22,11 @@ describe('<Menu />', () => {
     expect(fullMenuElement).toHaveAttribute('aria-hidden', 'true')
     expect(fullMenuElement).toHaveStyle({ opacity: 0 })
 
-    fireEvent.click(screen.getByLabelText(/open menu/i))
+    await userEvent.click(screen.getByLabelText(/open menu/i))
     expect(fullMenuElement).toHaveAttribute('aria-hidden', 'false')
     expect(fullMenuElement).toHaveStyle({ opacity: 1 })
 
-    fireEvent.click(screen.getByLabelText(/close menu/i))
+    await userEvent.click(screen.getByLabelText(/close menu/i))
     expect(fullMenuElement).toHaveAttribute('aria-hidden', 'true')
     expect(fullMenuElement).toHaveStyle({ opacity: 0 })
   })

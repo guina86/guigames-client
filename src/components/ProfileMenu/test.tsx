@@ -1,11 +1,8 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render, screen } from 'utils/tests'
 import ProfileMenu, { ProfileMenuProps } from '.'
 
 describe('<ProfileMenu />', () => {
-  const renderSut = (props?: ProfileMenuProps): RenderResult =>
-    renderWithTheme(<ProfileMenu {...props} />)
+  const renderSut = (props?: ProfileMenuProps) => render(<ProfileMenu {...props} />)
 
   it('should render the heading', () => {
     renderSut()

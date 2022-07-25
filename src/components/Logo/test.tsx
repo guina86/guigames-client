@@ -1,13 +1,10 @@
 /* eslint-disable testing-library/no-node-access */
 /* eslint-disable testing-library/no-container */
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render, screen } from 'utils/tests'
 import Logo, { LogoProps } from '.'
 
 describe('<Logo />', () => {
-  const renderSut = (props?: LogoProps): RenderResult =>
-    renderWithTheme(<Logo wrapperTestId="logo-wrapper" {...props} />)
+  const renderSut = (props?: LogoProps) => render(<Logo wrapperTestId="logo-wrapper" {...props} />)
 
   it('should render a white label by default', () => {
     const { container } = renderSut({ id: 'my_id' })

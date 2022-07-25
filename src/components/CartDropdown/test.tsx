@@ -1,11 +1,9 @@
-import { render, RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import CartDropdown from '.'
 import itemsMock from 'components/CartList/mock'
 
 describe('<CartDropdown />', () => {
-  const renderSut = (): RenderResult =>
-    renderWithTheme(<CartDropdown items={itemsMock} total="R$ 430,00" />)
+  const renderSut = () => render(<CartDropdown items={itemsMock} total="R$ 430,00" />)
 
   it('should render CartIcon', () => {
     renderSut()

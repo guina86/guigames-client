@@ -1,10 +1,8 @@
-import { RenderResult } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render } from 'utils/tests'
 import { Divider } from '.'
 
 describe('<Divider />', () => {
-  const renderSut = (): RenderResult => renderWithTheme(<Divider />)
+  const renderSut = () => render(<Divider />)
 
   it('should render correctly', () => {
     const { container } = renderSut()

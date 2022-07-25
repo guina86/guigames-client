@@ -1,13 +1,11 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import CardsList, { CardsListProps } from '.'
 import cardsMock from 'components/PaymentOptions/mock'
 
 describe('<CardsList />', () => {
-  const renderSut = (props?: CardsListProps): RenderResult =>
-    renderWithTheme(<CardsList cards={cardsMock} {...props} />)
+  const renderSut = (props?: CardsListProps) => render(<CardsList cards={cardsMock} {...props} />)
 
-  it('should render the heading', () => {
+  it('should render the CardList', () => {
     renderSut()
 
     expect(screen.getByRole('heading', { name: /my cards/i })).toBeInTheDocument()

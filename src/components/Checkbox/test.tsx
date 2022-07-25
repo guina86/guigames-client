@@ -1,12 +1,10 @@
-import { RenderResult, screen, waitFor } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import userEvent from '@testing-library/user-event'
 
 import Checkbox, { CheckboxProps } from '.'
 
 describe('<Checkbox />', () => {
-  const renderSut = (props?: CheckboxProps): RenderResult =>
-    renderWithTheme(<Checkbox {...props} />)
+  const renderSut = (props?: CheckboxProps) => render(<Checkbox {...props} />)
 
   it('should render with label', () => {
     renderSut({ label: 'checkbox label', name: 'check' })
@@ -33,10 +31,8 @@ describe('<Checkbox />', () => {
     renderSut({ label: 'Checkbox', onCheck })
 
     expect(onCheck).not.toHaveBeenCalled()
-    userEvent.click(screen.getByRole('checkbox'))
-    await waitFor(() => {
-      expect(onCheck).toHaveBeenCalledTimes(1)
-    })
+    await userEvent.click(screen.getByRole('checkbox'))
+    expect(onCheck).toHaveBeenCalledTimes(1)
     expect(onCheck).toHaveBeenCalledWith(true)
   })
 
@@ -45,10 +41,8 @@ describe('<Checkbox />', () => {
     renderSut({ label: 'Checkbox', onCheck, isChecked: true })
 
     expect(onCheck).not.toHaveBeenCalled()
-    userEvent.click(screen.getByRole('checkbox'))
-    await waitFor(() => {
-      expect(onCheck).toHaveBeenCalledTimes(1)
-    })
+    await userEvent.click(screen.getByRole('checkbox'))
+    expect(onCheck).toHaveBeenCalledTimes(1)
     expect(onCheck).toHaveBeenCalledWith(false)
   })
 

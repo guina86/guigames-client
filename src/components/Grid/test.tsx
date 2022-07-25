@@ -1,10 +1,8 @@
-import { RenderResult } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render } from 'utils/tests'
 import { Grid } from '.'
 
 describe('<Grid />', () => {
-  const renderSut = (): RenderResult => renderWithTheme(<Grid />)
+  const renderSut = () => render(<Grid />)
 
   it('should render the heading', () => {
     const { container } = renderSut()

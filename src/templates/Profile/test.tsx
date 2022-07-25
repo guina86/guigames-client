@@ -1,6 +1,4 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render, screen } from 'utils/tests'
 import Profile from '.'
 
 jest.mock('next/router', () => ({
@@ -24,7 +22,7 @@ jest.mock('components/ProfileMenu', () => ({
 }))
 
 describe('<Profile />', () => {
-  const renderSut = (): RenderResult => renderWithTheme(<Profile>Lorem Ipsum</Profile>)
+  const renderSut = () => render(<Profile>Lorem Ipsum</Profile>)
 
   it('should render the heading', () => {
     renderSut()

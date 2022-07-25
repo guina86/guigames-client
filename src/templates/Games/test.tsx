@@ -1,5 +1,3 @@
-import { RenderResult, screen, waitFor } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
 import Games, { GamesTemplateProps } from '.'
 import { MockedProvider } from '@apollo/client/testing'
 import categoriesMock from 'components/ExploreSidebar/mock'
@@ -8,6 +6,7 @@ import { fetchMoreMock, gamesMock, noGamesMock } from './mock'
 import { GameCardProps } from 'components/GameCard'
 import { makeApolloCache } from 'utils/apolloCache'
 import React from 'react'
+import { render, screen } from 'utils/tests'
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 const push = jest.fn()
@@ -47,8 +46,8 @@ type SutProps = {
 } & Partial<GamesTemplateProps>
 
 describe('<Games />', () => {
-  const renderSut = (props?: SutProps): RenderResult =>
-    renderWithTheme(
+  const renderSut = (props?: SutProps) =>
+    render(
       <MockedProvider cache={makeApolloCache()} mocks={props?.mocks || [gamesMock, fetchMoreMock]}>
         <Games filterItems={categoriesMock} {...props} />
       </MockedProvider>
@@ -63,26 +62,23 @@ describe('<Games />', () => {
   })
 
   it('should render more games when show more is clicked', async () => {
-    jest.useFakeTimers()
     renderSut()
 
     expect(await screen.findByTestId('Mock GameCard')).toBeInTheDocument()
-    userEvent.click(screen.getByRole('button', { name: /show more/i }))
+    await userEvent.click(screen.getByRole('button', { name: /show more/i }))
     expect(await screen.findByText(/fetch more game/i)).toBeInTheDocument()
   })
 
   it('should change push router when selecting a filter', async () => {
     renderSut()
 
-    userEvent.click(await screen.findByRole('checkbox', { name: /windows/i }))
-    userEvent.click(await screen.findByRole('checkbox', { name: /linux/i }))
-    userEvent.click(await screen.findByLabelText(/low to high/i))
+    await userEvent.click(await screen.findByRole('checkbox', { name: /windows/i }))
+    await userEvent.click(await screen.findByRole('checkbox', { name: /linux/i }))
+    await userEvent.click(await screen.findByLabelText(/low to high/i))
 
-    await waitFor(() => {
-      expect(push).toHaveBeenCalledWith({
-        pathname: '/games',
-        query: { platforms: ['windows', 'linux'], sort_by: 'low-to-high' }
-      })
+    expect(push).toHaveBeenCalledWith({
+      pathname: '/games',
+      query: { platforms: ['windows', 'linux'], sort_by: 'low-to-high' }
     })
   })
 

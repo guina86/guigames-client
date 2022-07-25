@@ -1,10 +1,10 @@
 /* eslint-disable testing-library/no-node-access */
 import 'match-media-mock'
-import { render, RenderResult, screen } from '@testing-library/react'
+import { render, screen } from 'utils/tests'
 import Slider from '.'
 
 describe('<Slider />', () => {
-  const renderSut = (): RenderResult =>
+  const renderSut = () =>
     render(
       <Slider settings={{ slidesToShow: 1, infinite: false }}>
         <p>Item 1</p>

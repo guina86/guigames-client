@@ -1,6 +1,5 @@
-import { RenderResult, screen } from '@testing-library/react'
 import React from 'react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import OrderList, { OrderListProps } from '.'
 import ordersMock from './mock'
 
@@ -16,8 +15,8 @@ jest.mock('components/Empty', () => ({
 }))
 
 describe('<OrderList />', () => {
-  const renderSut = (props?: Partial<OrderListProps>): RenderResult =>
-    renderWithTheme(<OrderList items={ordersMock} {...props} />)
+  const renderSut = (props?: Partial<OrderListProps>) =>
+    render(<OrderList items={ordersMock} {...props} />)
 
   it('should render the the orders', () => {
     renderSut()

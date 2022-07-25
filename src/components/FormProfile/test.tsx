@@ -1,12 +1,10 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render, screen } from 'utils/tests'
 import FormProfile from '.'
 
 describe('<FormProfile />', () => {
-  const renderSut = (): RenderResult => renderWithTheme(<FormProfile />)
+  const renderSut = () => render(<FormProfile />)
 
-  it('should render the heading', () => {
+  it('should render the FormProfile', () => {
     renderSut()
 
     expect(screen.getByRole('heading', { name: /my profile/i })).toBeInTheDocument()

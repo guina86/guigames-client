@@ -1,6 +1,4 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
-
+import { render, screen } from 'utils/tests'
 import GameItem, { GameItemProps } from '.'
 
 const args = {
@@ -10,8 +8,7 @@ const args = {
 }
 
 describe('<GameItem />', () => {
-  const renderSut = (props?: Partial<GameItemProps>): RenderResult =>
-    renderWithTheme(<GameItem {...args} {...props} />)
+  const renderSut = (props?: Partial<GameItemProps>) => render(<GameItem {...args} {...props} />)
 
   it('should render the heading', () => {
     renderSut()

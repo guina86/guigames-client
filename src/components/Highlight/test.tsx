@@ -1,12 +1,11 @@
-import { RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/tests'
 import Highlight, { HighlighProps } from '.'
 import * as S from './styles'
 import highlighMock from './mock'
 
 describe('<Highlight />', () => {
-  const renderSut = (props?: Partial<HighlighProps>): RenderResult =>
-    renderWithTheme(<Highlight {...highlighMock} {...props} wrapperTestId="wrapper" />)
+  const renderSut = (props?: Partial<HighlighProps>) =>
+    render(<Highlight {...highlighMock} {...props} wrapperTestId="wrapper" />)
 
   it('should render headings and button', () => {
     renderSut()

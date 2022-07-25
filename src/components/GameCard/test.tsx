@@ -1,5 +1,5 @@
-import { fireEvent, RenderResult, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import userEvent from '@testing-library/user-event'
+import { render, screen } from 'utils/tests'
 import GameCard, { GameCardProps } from '.'
 
 const args = {
@@ -11,8 +11,7 @@ const args = {
 }
 
 describe('<GameCard />', () => {
-  const renderSut = (props?: Partial<GameCardProps>): RenderResult =>
-    renderWithTheme(<GameCard {...args} {...props} />)
+  const renderSut = (props?: Partial<GameCardProps>) => render(<GameCard {...args} {...props} />)
 
   it('should render correctly', () => {
     renderSut()
@@ -58,13 +57,13 @@ describe('<GameCard />', () => {
     expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
   })
 
-  it('should call onFav method when favorite is clicked', () => {
+  it('should call onFav method when favorite is clicked', async () => {
     const onFav = jest.fn()
     renderSut({ onFav })
 
     expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
 
-    fireEvent.click(screen.getAllByRole('button')[0])
+    await userEvent.click(screen.getAllByRole('button')[0])
 
     expect(onFav).toBeCalled()
   })
