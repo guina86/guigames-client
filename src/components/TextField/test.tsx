@@ -55,8 +55,8 @@ describe('<TextField />', () => {
   })
 
   it('should change its value when typing', async () => {
-    const onInput = jest.fn()
-    renderSut({ onInput, label: 'TextField', name: 'TextField' })
+    const onInputChange = jest.fn()
+    renderSut({ onInputChange, label: 'TextField', name: 'TextField' })
 
     const input = screen.getByRole('textbox')
     const text = 'This is my new text'
@@ -64,8 +64,8 @@ describe('<TextField />', () => {
 
     expect(input).toHaveValue(text)
 
-    expect(onInput).toHaveBeenCalledTimes(text.length)
-    expect(onInput).toHaveBeenCalledWith(text)
+    expect(onInputChange).toHaveBeenCalledTimes(text.length)
+    expect(onInputChange).toHaveBeenCalledWith(text)
   })
 
   it('should be accessible by tab', () => {

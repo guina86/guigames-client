@@ -1,32 +1,82 @@
+import { useMutation } from '@apollo/client'
 import { AccountCircle, Email, Lock } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 import TextField from 'components/TextField'
+import { UsersPermissionsRegisterInput } from 'graphql/generated/globalTypes'
+import { MUTATION_REGISTER } from 'graphql/mutations/register'
 import Link from 'next/link'
+import React, { useState } from 'react'
 import { FormWrapper, FormLink } from '../Form'
 
-const FormSignUp = () => (
-  <FormWrapper>
-    <form>
-      <TextField name="name" placeholder="Name" type="text" icon={<AccountCircle />} />
-      <TextField name="email" placeholder="Email" type="email" icon={<Email />} />
-      <TextField name="password" placeholder="Password" type="password" icon={<Lock />} />
-      <TextField
-        name="confirm-password"
-        placeholder="Confirm password"
-        type="password"
-        icon={<Lock />}
-      />
-      <Button size="large" fullWidth>
-        Sign up now
-      </Button>
-      <FormLink>
-        Already have an account?{' '}
-        <Link href="/sign-in">
-          <a>Sign In</a>
-        </Link>
-      </FormLink>
-    </form>
-  </FormWrapper>
-)
+const FormSignUp = () => {
+  const [values, setValues] = useState<UsersPermissionsRegisterInput>({
+    username: '',
+    email: '',
+    password: ''
+  })
+
+  const [createUser] = useMutation(MUTATION_REGISTER)
+
+  const handleInput = (field: string, value: string) => {
+    setValues((old) => ({ ...old, [field]: value }))
+  }
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault()
+    createUser({
+      variables: {
+        input: {
+          username: values.username,
+          email: values.email,
+          password: values.password
+        }
+      }
+    })
+  }
+
+  return (
+    <FormWrapper onSubmit={handleSubmit}>
+      <form>
+        <TextField
+          name="username"
+          placeholder="Username"
+          type="text"
+          onInputChange={(value) => handleInput('username', value)}
+          icon={<AccountCircle />}
+        />
+        <TextField
+          name="email"
+          placeholder="Email"
+          type="email"
+          onInputChange={(value) => handleInput('email', value)}
+          icon={<Email />}
+        />
+        <TextField
+          name="password"
+          placeholder="Password"
+          type="password"
+          onInputChange={(value) => handleInput('password', value)}
+          icon={<Lock />}
+        />
+        <TextField
+          name="confirm-password"
+          placeholder="Confirm password"
+          type="password"
+          onInputChange={(value) => handleInput('confirm-password', value)}
+          icon={<Lock />}
+        />
+        <Button type="submit" size="large" fullWidth>
+          Sign up now
+        </Button>
+        <FormLink>
+          Already have an account?{' '}
+          <Link href="/sign-in">
+            <a>Sign In</a>
+          </Link>
+        </FormLink>
+      </form>
+    </FormWrapper>
+  )
+}
 
 export default FormSignUp

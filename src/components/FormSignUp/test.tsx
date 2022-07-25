@@ -1,8 +1,14 @@
+import { MockedProvider } from '@apollo/client/testing'
 import { render, screen } from 'utils/tests'
 import FormSignUp from '.'
 
 describe('<FormSignIn />', () => {
-  const renderSut = () => render(<FormSignUp />)
+  const renderSut = () =>
+    render(
+      <MockedProvider>
+        <FormSignUp />
+      </MockedProvider>
+    )
 
   it('should render the Form', () => {
     const { container } = renderSut()

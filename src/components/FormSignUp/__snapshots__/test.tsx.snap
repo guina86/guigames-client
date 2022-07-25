@@ -71,6 +71,12 @@ exports[`<FormSignIn /> should render the Form 1`] = `
   width: 100%;
 }
 
+.c5:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 2.4rem #EAEAEA inset;
+  -webkit-filter: none;
+  filter: none;
+}
+
 .c3 {
   color: #8F8F8F;
 }
@@ -140,8 +146,8 @@ exports[`<FormSignIn /> should render the Form 1`] = `
           </label>
           <input
             class="c5"
-            name="name"
-            placeholder="Name"
+            name="username"
+            placeholder="Username"
             type="text"
             value=""
           />
@@ -268,6 +274,7 @@ exports[`<FormSignIn /> should render the Form 1`] = `
       </main>
       <button
         class="c6 c7"
+        type="submit"
       >
         <span>
           Sign up now
