@@ -1,6 +1,6 @@
 import { GetGames_games } from 'graphql/generated/GetGames'
 import { GetHome_banners, GetHome_sections_newGames_highlight } from 'graphql/generated/GetHome'
-import { imageMapper, bannerMapper, gamesMapper, highlightMapper } from '.'
+import { imageMapper, bannerMapper, gamesMapper, highlightMapper, cartMapper } from '.'
 
 describe('imageMapper()', () => {
   it('should return a mapped url', () => {
@@ -63,16 +63,18 @@ describe('gamesMapper()', () => {
     expect(gamesMapper(null)).toStrictEqual([])
   })
   it('should ', () => {
-    const game = {
-      id: '1',
-      name: 'Game name',
-      slug: 'game-name',
-      developers: [{ name: 'Game developer' }],
-      cover: { url: '/img.jpg' },
-      price: 215
-    } as GetGames_games
+    const games = [
+      {
+        id: '1',
+        name: 'Game name',
+        slug: 'game-name',
+        developers: [{ name: 'Game developer' }],
+        cover: { url: '/img.jpg' },
+        price: 215
+      }
+    ] as GetGames_games[]
 
-    expect(gamesMapper([game])).toStrictEqual([
+    expect(gamesMapper(games)).toStrictEqual([
       {
         id: '1',
         title: 'Game name',
@@ -110,5 +112,35 @@ describe('highlightMapper()', () => {
       buttonLabel: 'button label',
       buttonLink: 'butotn link'
     })
+  })
+})
+
+describe('cartMapper()', () => {
+  it('should return an empty array if there is no games', () => {
+    expect(cartMapper(null)).toStrictEqual([])
+  })
+
+  it('should ', () => {
+    const cartGames = [
+      {
+        id: '1',
+        name: 'Sample Game',
+        slug: 'sample-game',
+        price: 10.5,
+        developers: [{ name: 'sample developer' }],
+        cover: {
+          url: '/sample-game.jpg'
+        }
+      }
+    ] as GetGames_games[]
+
+    expect(cartMapper(cartGames)).toStrictEqual([
+      {
+        id: '1',
+        img: 'http://localhost:1337/sample-game.jpg',
+        price: '$10.50',
+        title: 'Sample Game'
+      }
+    ])
   })
 })

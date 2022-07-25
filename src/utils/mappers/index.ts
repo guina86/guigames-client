@@ -1,5 +1,6 @@
 import { GetGames_games } from 'graphql/generated/GetGames'
 import { GetHome_banners, GetHome_sections_newGames_highlight } from 'graphql/generated/GetHome'
+import formatPrice from 'utils/format-price'
 
 export const imageMapper = (url: string | null | undefined) =>
   url ? `http://localhost:1337${url}` : ''
@@ -44,3 +45,14 @@ export const highlightMapper = (
         buttonLink: highlight.buttonLink
       }
     : {}
+
+export const cartMapper = (games: GetGames_games[] | null | undefined) => {
+  return games
+    ? games.map((game) => ({
+        id: game.id,
+        img: imageMapper(game.cover?.url),
+        price: formatPrice(game.price),
+        title: game.name
+      }))
+    : []
+}
