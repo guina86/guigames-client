@@ -22,7 +22,7 @@ const Auth = ({ children, title }: AuthProps) => (
           <Heading size="huge">All your favorite games in on place</Heading>
 
           <S.Subtitle>
-            <strong>Gui games</strong> is the best and most complete gaming platform.
+            <strong>Gui Games</strong> is the best and most complete gaming platform.
           </S.Subtitle>
         </div>
 
