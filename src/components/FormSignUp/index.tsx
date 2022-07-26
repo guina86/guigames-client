@@ -4,9 +4,10 @@ import Button from 'components/Button'
 import TextField from 'components/TextField'
 import { UsersPermissionsRegisterInput } from 'graphql/generated/globalTypes'
 import { MUTATION_REGISTER } from 'graphql/mutations/register'
+import { signIn } from 'next-auth/client'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { FormWrapper, FormLink } from '../Form'
+import { FormWrapper, FormLink, FormLoading } from '../Form'
 
 const FormSignUp = () => {
   const [values, setValues] = useState<UsersPermissionsRegisterInput>({
@@ -15,7 +16,13 @@ const FormSignUp = () => {
     password: ''
   })
 
-  const [createUser] = useMutation(MUTATION_REGISTER)
+  const [createUser, { error, loading }] = useMutation(MUTATION_REGISTER, {
+    onError: (err) => console.error(err),
+    onCompleted: () => {
+      !error &&
+        signIn('credentials', { email: values.email, password: values.password, callbackUrl: '/' })
+    }
+  })
 
   const handleInput = (field: string, value: string) => {
     setValues((old) => ({ ...old, [field]: value }))
@@ -23,6 +30,7 @@ const FormSignUp = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
+
     createUser({
       variables: {
         input: {
@@ -65,8 +73,8 @@ const FormSignUp = () => {
           onInputChange={(value) => handleInput('confirm-password', value)}
           icon={<Lock />}
         />
-        <Button type="submit" size="large" fullWidth>
-          Sign up now
+        <Button type="submit" size="large" disabled={loading} fullWidth>
+          {loading ? <FormLoading /> : <span>Sign up now</span>}
         </Button>
         <FormLink>
           Already have an account?{' '}

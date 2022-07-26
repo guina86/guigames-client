@@ -277,7 +277,9 @@ exports[`<FormSignIn /> should render the Form 1`] = `
         type="submit"
       >
         <span>
-          Sign up now
+          <span>
+            Sign up now
+          </span>
         </span>
       </button>
       <div

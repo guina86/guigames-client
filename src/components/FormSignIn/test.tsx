@@ -1,6 +1,16 @@
 import { render, screen } from 'utils/tests'
 import FormSignIn from '.'
 
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+const push = jest.fn()
+
+useRouter.mockImplementation(() => ({
+  push,
+  query: '',
+  asPaht: '',
+  route: '/'
+}))
+
 describe('<FormSignIn />', () => {
   const renderSut = () => render(<FormSignIn />)
 
