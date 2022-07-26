@@ -14,6 +14,6 @@ describe('<UserDropdown />', () => {
     await screen.findByRole('link', { name: /my account/i })
     expect(screen.getByRole('link', { name: /my account/i })).toHaveAttribute('href', '/profile/me')
     expect(screen.getByRole('link', { name: /wishlist/i })).toHaveAttribute('href', '/wishlist')
-    expect(screen.getByRole('link', { name: /sign out/i })).toHaveAttribute('href', '/logout')
+    expect(screen.getByRole('button', { name: /sign out/i })).toBeInTheDocument()
   })
 })

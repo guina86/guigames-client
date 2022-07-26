@@ -10,6 +10,12 @@ const args = {
   recommendedHighlight: highlightMock
 }
 
+jest.mock('templates/Base', () => ({
+  __esModule: true,
+  default: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="Mock Base">{children}</div>
+  )
+}))
 jest.mock('components/Showcase', () => ({
   __esModule: true,
   default: () => <div data-testid="Mock Showcase"></div>
