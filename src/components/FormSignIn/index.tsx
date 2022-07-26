@@ -14,7 +14,7 @@ const FormSignIn = () => {
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({})
   const [values, setValues] = useState({ email: '', password: '' })
   const [loading, setLoading] = useState(false)
-  const { push } = useRouter()
+  const { push, query } = useRouter()
 
   const handleInput = (field: string, value: string) => {
     setValues((old) => ({ ...old, [field]: value }))
@@ -35,7 +35,11 @@ const FormSignIn = () => {
 
     setFieldErrors({})
 
-    const result = await signIn('credentials', { ...values, redirect: false, callbackUrl: '/' })
+    const result = await signIn('credentials', {
+      ...values,
+      redirect: false,
+      callbackUrl: `${window.location.origin}${query?.callbackUrl || ''}`
+    })
 
     if (result?.url) {
       return push(result?.url)
