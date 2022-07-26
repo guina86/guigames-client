@@ -265,7 +265,7 @@ exports[`<FormSignIn /> should render the Form 1`] = `
           </label>
           <input
             class="c5"
-            name="confirm-password"
+            name="confirm_password"
             placeholder="Confirm password"
             type="password"
             value=""
