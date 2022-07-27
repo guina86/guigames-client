@@ -70,14 +70,14 @@ const FormForgotPassword = () => {
             <TextField
               name="email"
               placeholder="Email"
-              type="email"
+              type="text"
               error={fieldErrors.email}
               initialValue={query.email as string}
               onInputChange={(value) => handleInput('email', value)}
               icon={<Email />}
             />
 
-            <Button type="submit" size="large" fullWidth disabled={loading} formNoValidate>
+            <Button type="submit" size="large" fullWidth disabled={loading}>
               {loading ? <FormLoading /> : <span>Send Email</span>}
             </Button>
           </form>
