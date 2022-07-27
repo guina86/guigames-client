@@ -10,13 +10,16 @@ import React, { useState } from 'react'
 import { FieldErrors, signUpValidate } from 'utils/validations'
 import { FormWrapper, FormLink, FormLoading, FormError } from '../Form'
 
+type FormSignUpFields = UsersPermissionsRegisterInput & { confirm_password?: string }
+
 const FormSignUp = () => {
   const [formError, setFormError] = useState('')
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({})
-  const [values, setValues] = useState<UsersPermissionsRegisterInput>({
+  const [values, setValues] = useState<FormSignUpFields>({
     username: '',
     email: '',
-    password: ''
+    password: '',
+    confirm_password: undefined
   })
 
   const [createUser, { error, loading }] = useMutation(MUTATION_REGISTER, {
@@ -99,7 +102,7 @@ const FormSignUp = () => {
           onInputChange={(value) => handleInput('confirm_password', value)}
           icon={<Lock />}
         />
-        <Button type="submit" size="large" disabled={loading} fullWidth>
+        <Button type="submit" size="large" disabled={loading} fullWidth formNoValidate>
           {loading ? <FormLoading /> : <span>Sign up now</span>}
         </Button>
         <FormLink>

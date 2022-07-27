@@ -3,6 +3,15 @@ import Joi from 'joi'
 
 type SingInValues = Omit<UsersPermissionsRegisterInput, 'username'>
 
+type ForgotValues = Pick<UsersPermissionsRegisterInput, 'email'>
+
+type SignUpValues = UsersPermissionsRegisterInput & { confirm_password?: string }
+
+type ResetValues = {
+  password: string
+  confirm_password?: string
+}
+
 export type FieldErrors = {
   [key: string]: string
 }
@@ -31,7 +40,7 @@ function getFieldErrors(objErrors: Joi.ValidationResult) {
   return errors
 }
 
-export function signUpValidate(values: UsersPermissionsRegisterInput) {
+export function signUpValidate(values: SignUpValues) {
   const schema = Joi.object(fieldsValidations)
 
   return getFieldErrors(schema.validate(values, { abortEarly: false }))
@@ -41,6 +50,22 @@ export function signInValidate(values: SingInValues) {
   const { email, password } = fieldsValidations
 
   const schema = Joi.object({ email, password })
+
+  return getFieldErrors(schema.validate(values, { abortEarly: false }))
+}
+
+export function forgotValidate(values: ForgotValues) {
+  const { email } = fieldsValidations
+
+  const schema = Joi.object({ email })
+
+  return getFieldErrors(schema.validate(values, { abortEarly: false }))
+}
+
+export function resetValidate(values: ResetValues) {
+  const { password, confirm_password } = fieldsValidations
+
+  const schema = Joi.object({ password, confirm_password })
 
   return getFieldErrors(schema.validate(values, { abortEarly: false }))
 }

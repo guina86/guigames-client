@@ -274,6 +274,7 @@ exports[`<FormSignIn /> should render the Form 1`] = `
       </main>
       <button
         class="c6 c7"
+        formnovalidate=""
         type="submit"
       >
         <span>
