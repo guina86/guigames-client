@@ -1,3 +1,4 @@
+import 'session.mock'
 import userEvent from '@testing-library/user-event'
 import { render, screen } from 'utils/tests'
 import GameCard, { GameCardProps } from '.'
@@ -50,23 +51,6 @@ describe('<GameCard />', () => {
     })
     expect(promotionalPrice).toBeInTheDocument()
     expect(promotionalPrice).toHaveTextContent('55')
-  })
-
-  it('should render a filled Favorite icon when favorite is true', () => {
-    renderSut({ favorite: true })
-
-    expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
-  })
-
-  it('should call onFav method when favorite is clicked', async () => {
-    const onFav = jest.fn()
-    renderSut({ onFav })
-
-    expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
-
-    await userEvent.click(screen.getAllByRole('button')[0])
-
-    expect(onFav).toBeCalled()
   })
 
   it('should render Ribbon', () => {

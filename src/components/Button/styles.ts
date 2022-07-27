@@ -1,3 +1,4 @@
+import { darken } from 'polished'
 import styled, { css, DefaultTheme } from 'styled-components'
 import { ButtonProps } from '.'
 
@@ -34,11 +35,11 @@ const wrapperModifiers = {
   minimal: (theme: DefaultTheme) => css`
     background: none;
     color: ${theme.colors.primary};
-    transition: box-shadow 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
 
     &:hover {
       background: none;
-      box-shadow: 0 0 1px 1px ${theme.colors.primary};
+      color: ${darken(0.2, theme.colors.primary)};
     }
   `,
   disabled: () => css`

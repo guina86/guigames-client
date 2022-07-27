@@ -1,3 +1,4 @@
+import 'session.mock'
 import 'match-media-mock'
 import { render, screen } from 'utils/tests'
 import highlightMock from 'components/Highlight/mock'

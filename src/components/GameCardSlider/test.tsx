@@ -1,3 +1,4 @@
+import 'session.mock'
 import 'match-media-mock'
 import GameCardSlider, { GameCardSliderProps } from '.'
 import items from './mock'

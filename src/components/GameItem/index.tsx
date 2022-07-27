@@ -40,7 +40,7 @@ const GameItem = ({ id, img, price, title, downloadLink, paymentInfo }: GameItem
           </S.TitleContent>
           <S.Group>
             <S.Price>{price}</S.Price>
-            {isInCart(id) && <S.Remove onClick={() => removeFromCart(id)}>Remover</S.Remove>}
+            {isInCart(id) && <S.Remove onClick={() => removeFromCart(id)}>Remove</S.Remove>}
           </S.Group>
         </S.Content>
       </S.GameContent>
