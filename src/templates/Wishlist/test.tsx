@@ -3,9 +3,9 @@ import { render, screen } from 'utils/tests'
 import Wishlist, { WishlistTemplateProps } from '.'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
+import { GameCardProps } from 'components/GameCard'
 
 const args = {
-  games: gamesMock,
   recommendedTitle: 'You may like these games',
   recommendedGames: gamesMock,
   recommendedHighlight: highlightMock
@@ -23,8 +23,8 @@ jest.mock('components/Showcase', () => ({
 }))
 
 describe('<Wishlist />', () => {
-  const renderSut = (props?: Partial<WishlistTemplateProps>) =>
-    render(<Wishlist {...args} {...props} />)
+  const renderSut = (items: GameCardProps[] = gamesMock) =>
+    render(<Wishlist {...args} />, { wishlistProviderProps: { items } })
 
   it('should render the Wishlist', () => {
     renderSut()
@@ -35,7 +35,7 @@ describe('<Wishlist />', () => {
   })
 
   it('should render Empty when there are no games', () => {
-    renderSut({ games: undefined })
+    renderSut([])
 
     expect(screen.queryByText(/population zero/i)).not.toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /your wishlist is empty/i }))
