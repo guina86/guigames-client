@@ -4,11 +4,10 @@ import { Divider } from 'components/Divider'
 import { GameCardProps } from 'components/GameCard'
 import Heading from 'components/Heading'
 import { HighlighProps } from 'components/Highlight'
-import PaymentOptions from 'components/FormPayment'
 import Showcase from 'components/Showcase'
 import Base from 'templates/Base'
 import * as S from './styles'
-import FormPayment from 'components/FormPayment'
+import CartSidePanel from 'components/CartSidePanel'
 
 export type CartTemplateProps = {
   recommendedTitle: string
@@ -26,7 +25,7 @@ const Cart = ({ recommendedTitle, recommendedGames, recommendedHighlight }: Cart
 
         <S.Content>
           <CartList />
-          <FormPayment />
+          <CartSidePanel />
         </S.Content>
 
         <Divider />

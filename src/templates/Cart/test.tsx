@@ -24,20 +24,20 @@ jest.mock('components/CartList', () => ({
   __esModule: true,
   default: () => <div data-testid="Mock CartList"></div>
 }))
-jest.mock('components/FormPayment', () => ({
+jest.mock('components/CartSidePanel', () => ({
   __esModule: true,
-  default: () => <div data-testid="Mock FormPayment"></div>
+  default: () => <div data-testid="Mock CartSidePanel"></div>
 }))
 
 describe('<Cart />', () => {
   const renderSut = (props?: Partial<CartTemplateProps>) => render(<Cart {...args} {...props} />)
 
-  it('should render the heading', () => {
+  it('should render the Cart', () => {
     renderSut()
 
     expect(screen.getByRole('heading', { name: /my cart/i })).toBeInTheDocument()
     expect(screen.getByTestId('Mock CartList')).toBeInTheDocument()
-    expect(screen.getByTestId('Mock FormPayment')).toBeInTheDocument()
+    expect(screen.getByTestId('Mock CartSidePanel')).toBeInTheDocument()
     expect(screen.getByTestId('Mock Showcase')).toBeInTheDocument()
     expect(screen.queryByTestId('Mock Empty')).not.toBeInTheDocument()
   })

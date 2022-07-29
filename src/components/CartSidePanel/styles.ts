@@ -1,5 +1,5 @@
 import { tint } from 'polished'
-import styled, { css, DefaultTheme } from 'styled-components'
+import styled, { css } from 'styled-components'
 import * as ButtonStyles from 'components/Button/styles'
 
 export const Wrapper = styled.main``
@@ -28,23 +28,15 @@ export const Footer = styled.div`
   `}
 `
 
-export const Card = styled.div`
+export const Text = styled.div`
   ${({ theme }) => css`
-    margin-top: ${theme.spacings.xlarge};
-    margin-bottom: ${theme.spacings.xxsmall};
-  `}
-`
+    color: ${theme.colors.black};
+    font-size: ${theme.font.sizes.medium};
+    margin-top: ${theme.spacings.large};
+    text-align: justify;
 
-export const Error = styled.p`
-  ${({ theme }) => css`
-    color: ${theme.colors.red};
-    font-size: ${theme.font.sizes.xsmall};
-    padding-top: ${theme.spacings.xsmall};
-    display: flex;
-    align-items: center;
-
-    & > svg {
-      margin-right: ${theme.spacings.xxsmall};
+    > p {
+      margin-bottom: ${theme.spacings.xsmall};
     }
   `}
 `

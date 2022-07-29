@@ -1,5 +1,5 @@
 import { render, screen } from 'utils/tests'
-import CartList, { CartListProps } from '.'
+import CartList from '.'
 import itemsMock from './mock'
 
 describe('<CartList />', () => {
@@ -19,7 +19,7 @@ describe('<CartList />', () => {
       cartProviderProps: { items: itemsMock, total: '$430.00' }
     })
 
-    expect(screen.getByText(/buy it now/i)).toBeInTheDocument()
+    expect(screen.getByText(/open cart/i)).toBeInTheDocument()
   })
 
   it('should render the loading', () => {

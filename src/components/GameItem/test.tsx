@@ -22,7 +22,9 @@ describe('<GameItem />', () => {
 
   it('should render remove if the item is inside the cart and call remove', async () => {
     const removeFromCart = jest.fn()
-    render(<GameItem {...args} />, { cartProviderProps: { isInCart: () => true, removeFromCart } })
+    render(<GameItem {...args} hasLink />, {
+      cartProviderProps: { isInCart: () => true, removeFromCart }
+    })
 
     const removeLink = screen.getByText(/remove/i)
 

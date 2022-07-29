@@ -82,15 +82,17 @@ export const Price = styled.div`
 export const Group = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
 `
 
 export const Remove = styled.div`
   ${({ theme }) => css`
     cursor: pointer;
+    text-align: end;
     color: ${theme.colors.primary};
     font-size: ${theme.font.sizes.small};
+    margin-left: auto;
   `}
 `
 
