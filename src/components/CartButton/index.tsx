@@ -13,13 +13,8 @@ const CartButton = ({ id, size = 'small', hasText = false }: CartButtonProps) =>
 
   return (
     <Button
-      icon={
-        isInCart(id) ? (
-          <RemoveShoppingCart aria-label={buttonText} />
-        ) : (
-          <AddShoppingCart aria-label={buttonText} />
-        )
-      }
+      aria-label={buttonText}
+      icon={isInCart(id) ? <RemoveShoppingCart /> : <AddShoppingCart />}
       size={size}
       onClick={() => (isInCart(id) ? removeFromCart(id) : addToCart(id))}
     >
