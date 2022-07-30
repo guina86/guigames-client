@@ -12,6 +12,7 @@ import GlobalStyles from 'styles/global'
 import theme from 'styles/theme'
 import { useApollo } from 'utils/apollo'
 import { WishlistProvider } from 'hooks/use-wishlist'
+import Analytics from 'components/Analytics'
 
 function App({ Component, pageProps }: AppProps) {
   const client = useApollo(pageProps.initialApolloState)
@@ -29,6 +30,7 @@ function App({ Component, pageProps }: AppProps) {
                 <link rel="manifest" href="/manifest.json" />
                 <meta name="description" content="The Best Game Store in the world!" />
               </Head>
+              <Analytics />
               <DefaultSeo {...SEO} />
               <GlobalStyles />
               <NextNProgress
