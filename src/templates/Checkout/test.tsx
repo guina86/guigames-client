@@ -1,6 +1,5 @@
 import React from 'react'
 import { render, screen } from 'utils/tests'
-import Cart, { CartTemplateProps } from '.'
 import Checkout from '.'
 
 jest.mock('templates/Base', () => ({
@@ -19,7 +18,8 @@ jest.mock('components/FormPayment', () => ({
 }))
 
 describe('<Cart />', () => {
-  const renderSut = () => render(<Checkout />)
+  const renderSut = () =>
+    render(<Checkout session={{ jwt: '123', user: { email: 'any@email.com' } }} />)
 
   it('should render the heading', () => {
     renderSut()

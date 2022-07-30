@@ -3,6 +3,7 @@ import Empty from 'components/Empty'
 import GameItem from 'components/GameItem'
 import Loading from 'components/Loading'
 import { useCart } from 'hooks/use-cart'
+import Link from 'next/link'
 import * as S from './styles'
 
 export type CartListProps = {
@@ -34,9 +35,9 @@ const CartList = ({ hasButton = false, hasLinks = true }: CartListProps) => {
             <S.Total>{total}</S.Total>
 
             {hasButton && (
-              <Button as="a" href="/cart">
-                Open cart
-              </Button>
+              <Link href="/cart" passHref>
+                <Button as="a">Open cart</Button>
+              </Link>
             )}
           </S.Footer>
         </>
@@ -44,7 +45,6 @@ const CartList = ({ hasButton = false, hasLinks = true }: CartListProps) => {
         <Empty
           title="Your cart is empty"
           description="Go back to the store and explore great games and offers."
-          hasLink
         />
       )}
     </S.Wrapper>

@@ -1,10 +1,13 @@
 import { ShoppingCart } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 import Heading from 'components/Heading'
+import { useCart } from 'hooks/use-cart'
 import Link from 'next/link'
 import * as S from './styles'
 
 const CartSidePanel = () => {
+  const { items } = useCart()
+
   return (
     <S.Wrapper>
       <S.Body>
@@ -27,7 +30,13 @@ const CartSidePanel = () => {
             Continue shopping
           </Button>
         </Link>
-        <Button as="a" href="/checkout" icon={<ShoppingCart />} fullWidth>
+        <Button
+          as="a"
+          href="/checkout"
+          icon={<ShoppingCart />}
+          disabled={items.length === 0}
+          fullWidth
+        >
           Checkout
         </Button>
       </S.Footer>

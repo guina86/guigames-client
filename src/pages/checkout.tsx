@@ -1,9 +1,9 @@
-import protectedRoutes from 'utils/protected-routes'
 import { GetServerSidePropsContext } from 'next'
-import Checkout from 'templates/Checkout'
+import protectedRoutes from 'utils/protected-routes'
+import Checkout, { CheckoutTemplateProps } from 'templates/Checkout'
 
-export default function CheckoutPage() {
-  return <Checkout />
+export default function CheckoutPage(props: CheckoutTemplateProps) {
+  return <Checkout {...props} />
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {

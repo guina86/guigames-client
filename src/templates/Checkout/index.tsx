@@ -8,12 +8,15 @@ import Base from 'templates/Base'
 import * as S from './styles'
 import FormPayment from 'components/FormPayment'
 import { Info } from '@styled-icons/material-outlined'
+import { Session } from 'next-auth'
 
-export type CartTemplateProps = CartListProps
+export type CheckoutTemplateProps = {
+  session: Session & { jwt: string }
+}
 
 const stripe = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`, { locale: 'en' })
 
-const Checkout = () => {
+const Checkout = ({ session }: CheckoutTemplateProps) => {
   return (
     <Base>
       <Container>
@@ -24,7 +27,7 @@ const Checkout = () => {
         <S.Content>
           <CartList hasLinks={false} />
           <Elements stripe={stripe}>
-            <FormPayment />
+            <FormPayment session={session} />
           </Elements>
         </S.Content>
 
