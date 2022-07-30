@@ -19,11 +19,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await protectedRoutes(context)
   const apolloClient = initializeApollo(null, session)
 
+  if (!session) return { props: {} }
+
   const { data } = await apolloClient.query<GetOrders, GetOrdersVariables>({
     query: GET_ORDERS,
     variables: {
       identifier: session?.id as string
-    }
+    },
+    fetchPolicy: 'no-cache'
   })
 
   return {
