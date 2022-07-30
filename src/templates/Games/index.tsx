@@ -6,12 +6,12 @@ import { Grid } from 'components/Grid'
 import Loading from 'components/Loading'
 import Base from 'templates/Base'
 import { useQueryGames } from 'graphql/queries/games'
-import { imageMapper } from 'utils/mappers'
 import * as S from './styles'
 import { useRouter } from 'next/router'
 import { parseQueryStringToFilter, parseQueryStringToWhere } from 'utils/filter'
 import { ParsedUrlQueryInput } from 'querystring'
 import Empty from 'components/Empty'
+import { getImageUrl } from 'utils/getImageUrl'
 
 export type GamesTemplateProps = {
   filterItems: ItemProps[]
@@ -62,7 +62,7 @@ const Games = ({ filterItems }: GamesTemplateProps) => {
                       title={game.name}
                       slug={game.slug}
                       developer={game.developers[0].name}
-                      img={imageMapper(game.cover!.url)}
+                      img={getImageUrl(game.cover!.url)}
                       price={game.price}
                     />
                   ))}

@@ -1,6 +1,6 @@
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
-import CartList, { CartListProps } from 'components/CartList'
+import CartList from 'components/CartList'
 import { Container } from 'components/Container'
 import { Divider } from 'components/Divider'
 import Heading from 'components/Heading'

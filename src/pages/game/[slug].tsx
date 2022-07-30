@@ -1,8 +1,4 @@
 import Game, { GameTemplateProps } from 'templates/Game'
-import galleryMock from 'components/Gallery/mock'
-import gameDetailsMock from 'components/GameDetails/mock'
-import gamesMock from 'components/GameCardSlider/mock'
-import highlightMock from 'components/Highlight/mock'
 import { useRouter } from 'next/router'
 import { initializeApollo } from 'utils/apollo'
 import { GET_GAMES, GET_GAME_BY_SLUG } from 'graphql/queries/games'
@@ -11,9 +7,10 @@ import { GetGameBySlug, GetGameBySlugVariables } from 'graphql/generated/GetGame
 import { GetStaticProps } from 'next'
 import { GetRecommended } from 'graphql/generated/GetRecommended'
 import { GET_RECOMMENDED } from 'graphql/queries/recommended'
-import { gamesMapper, highlightMapper, imageMapper } from 'utils/mappers'
+import { gamesMapper, highlightMapper } from 'utils/mappers'
 import { GetUpcoming } from 'graphql/generated/GetUpcoming'
 import { GET_UPCOMING } from 'graphql/queries/upcomming'
+import { getImageUrl } from 'utils/getImageUrl'
 
 const apolloClient = initializeApollo()
 
@@ -65,7 +62,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     revalidate: 60,
     props: {
-      cover: imageMapper(game.cover?.src),
+      cover: getImageUrl(game.cover?.src),
       gameInfo: {
         id: game.id,
         title: game.name,
@@ -73,7 +70,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         description: game.short_description
       },
       gallery: game.gallery.map((img) => ({
-        src: imageMapper(img.src),
+        src: getImageUrl(img.src),
         label: img.label
       })),
       description: game.description,

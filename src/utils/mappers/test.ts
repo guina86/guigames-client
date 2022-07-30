@@ -1,26 +1,7 @@
 import { GetGames_games } from 'graphql/generated/GetGames'
 import { GetHome_banners, GetHome_sections_newGames_highlight } from 'graphql/generated/GetHome'
 import { GetOrders_orders } from 'graphql/generated/GetOrders'
-import {
-  imageMapper,
-  bannerMapper,
-  gamesMapper,
-  highlightMapper,
-  cartMapper,
-  ordersMapper
-} from '.'
-
-describe('imageMapper()', () => {
-  it('should return a mapped url', () => {
-    const url = '/file.ext'
-
-    expect(imageMapper(url)).toEqual('http://localhost:1337/file.ext')
-  })
-
-  it('should return empty string if no image', () => {
-    expect(imageMapper(null)).toEqual('')
-  })
-})
+import { bannerMapper, gamesMapper, highlightMapper, cartMapper, ordersMapper } from '.'
 
 describe('bannerMapper()', () => {
   it('should return the right format when mapped', () => {

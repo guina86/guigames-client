@@ -3,13 +3,11 @@ import { GetHome_banners, GetHome_sections_newGames_highlight } from 'graphql/ge
 import { GetWishlist_wishlists_games } from 'graphql/generated/GetWishlist'
 import { GetOrders_orders } from 'graphql/generated/GetOrders'
 import formatPrice from 'utils/format-price'
-
-export const imageMapper = (url: string | null | undefined) =>
-  url ? `http://localhost:1337${url}` : ''
+import { getImageUrl } from 'utils/getImageUrl'
 
 export const bannerMapper = (banners: GetHome_banners[]) =>
   banners.map((banner) => ({
-    img: imageMapper(banner.image?.url!),
+    img: getImageUrl(banner.image?.url!),
     title: banner.title,
     subtitle: banner.subtitle,
     buttonLabel: banner.button?.label,
@@ -30,7 +28,7 @@ export const gamesMapper = (
         title: game.name,
         slug: game.slug,
         developer: game.developers[0].name,
-        img: imageMapper(game.cover?.url!),
+        img: getImageUrl(game.cover?.url!),
         price: game.price
       }))
     : []
@@ -42,8 +40,8 @@ export const highlightMapper = (
     ? {
         title: highlight.title,
         subtitle: highlight.subtitle,
-        backgroundImage: imageMapper(highlight.background?.url!),
-        floatImage: imageMapper(highlight.floatImage?.url!),
+        backgroundImage: getImageUrl(highlight.background?.url!),
+        floatImage: getImageUrl(highlight.floatImage?.url!),
         alignment: highlight.alignment,
         buttonLabel: highlight.buttonLabel,
         buttonLink: highlight.buttonLink
@@ -54,7 +52,7 @@ export const cartMapper = (games: GetGames_games[] | null | undefined) => {
   return games
     ? games.map((game) => ({
         id: game.id,
-        img: imageMapper(game.cover?.url),
+        img: getImageUrl(game.cover?.url),
         price: formatPrice(game.price),
         title: game.name
       }))
@@ -80,7 +78,7 @@ export const ordersMapper = (orders: GetOrders_orders[] | null) => {
             id: game.id,
             title: game.name,
             downloadLink: 'https://guigames.com/game/download/yuYT56Tgh43LkjhNBgdf',
-            img: imageMapper(game.cover?.url),
+            img: getImageUrl(game.cover?.url),
             price: formatPrice(game.price)
           }))
         }
