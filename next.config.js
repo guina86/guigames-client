@@ -12,7 +12,7 @@ const nextConfig = withPWA({
     disable: !isProd
   },
   images: {
-    domains: ['localhost']
+    domains: ['localhost', 'res.cloudinary.com']
   }
 })
 
