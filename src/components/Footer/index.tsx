@@ -18,11 +18,11 @@ const Footer = ({ contentTestId }: FooterProps) => (
         <a href="mailto:sac@guigames.com">sac@guigames.com</a>
       </S.Column>
 
-      <S.Column>
+      <S.Column aria-labelledby="social-media">
         <Heading color="black" size="small" lineBottom lineColor="secondary">
           Follow us
         </Heading>
-        <nav aria-label="social media">
+        <nav id="social-media">
           <a href="https://www.instagram.com/gui-games" target="_blank" rel="noopenner, noreferrer">
             Instagram
           </a>
@@ -38,11 +38,11 @@ const Footer = ({ contentTestId }: FooterProps) => (
         </nav>
       </S.Column>
 
-      <S.Column>
+      <S.Column aria-labelledby="resources">
         <Heading color="black" size="small" lineBottom lineColor="secondary">
           Links
         </Heading>
-        <nav aria-labelledby="footer resources">
+        <nav id="resources">
           <Link href="/">
             <a>Home</a>
           </Link>
@@ -55,7 +55,7 @@ const Footer = ({ contentTestId }: FooterProps) => (
         </nav>
       </S.Column>
 
-      <S.Column aria-labelledby="footer-contact">
+      <S.Column aria-label="contact">
         <Heading color="black" size="small" lineBottom lineColor="secondary">
           Location
         </Heading>
