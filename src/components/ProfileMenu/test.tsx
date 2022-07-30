@@ -1,6 +1,12 @@
 import { render, screen } from 'utils/tests'
 import ProfileMenu, { ProfileMenuProps } from '.'
 
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+
+useRouter.mockImplementation(() => ({
+  query: {}
+}))
+
 describe('<ProfileMenu />', () => {
   const renderSut = (props?: ProfileMenuProps) => render(<ProfileMenu {...props} />)
 

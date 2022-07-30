@@ -2,6 +2,12 @@ import { render, screen } from 'utils/tests'
 import userEvent from '@testing-library/user-event'
 import Menu, { MenuProps } from '.'
 
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+
+useRouter.mockImplementation(() => ({
+  query: {}
+}))
+
 describe('<Menu />', () => {
   const renderSut = (props?: MenuProps) => render(<Menu {...props} />)
 
