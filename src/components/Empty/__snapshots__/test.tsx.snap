@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Empty /> should render the Empty 1`] = `
-.c4 {
+.c3 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -26,7 +26,7 @@ exports[`<Empty /> should render the Empty 1`] = `
   padding: 0.8rem 3.2rem;
 }
 
-.c4:hover {
+.c3:hover {
   background: linear-gradient(180deg,#e35565 0%,#d978a6 50%);
 }
 
@@ -46,15 +46,11 @@ exports[`<Empty /> should render the Empty 1`] = `
 }
 
 .c1 {
-  max-width: 100%;
-}
-
-.c2 {
   color: #F231A5;
   font-size: 2.8rem;
 }
 
-.c3 {
+.c2 {
   color: #FAFAFA;
   font-size: 1.8rem;
   margin-bottom: 3.2rem;
@@ -66,21 +62,22 @@ exports[`<Empty /> should render the Empty 1`] = `
   >
     <img
       alt="A gamer in a couch playing videogame"
-      class="c1"
+      height="285"
       src="/img/empty.svg"
+      width="380"
     />
     <h2
-      class="c2"
+      class="c1"
     >
       Empty title
     </h2>
     <p
-      class="c3"
+      class="c2"
     >
       Empty description
     </p>
     <a
-      class="c4"
+      class="c3"
       href="/"
     >
       <span>

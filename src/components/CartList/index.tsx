@@ -44,7 +44,7 @@ const CartList = ({ hasButton = false, hasLinks = true }: CartListProps) => {
       ) : (
         <Empty
           title="Your cart is empty"
-          description="Go back to the store and explore great games and offers."
+          description="Games added to your cart will appear here."
         />
       )}
     </S.Wrapper>

@@ -23,9 +23,6 @@ export const Wrapper = styled.div<WrapperProps>`
         color: ${theme.colors.black};
         font-size: ${theme.font.sizes.medium};
       }
-      ${EmptyStyles.Image} {
-        max-width: 20rem;
-      }
       ${EmptyStyles.Title} {
         font-size: ${theme.font.sizes.large};
       }
