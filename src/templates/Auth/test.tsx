@@ -12,7 +12,7 @@ describe('<Auth />', () => {
   it('should render all components and children', () => {
     renderSut()
 
-    expect(screen.getAllByRole('img', { name: /gui games/i })).toHaveLength(2)
+    expect(screen.getAllByRole('img', { name: /gui games/i })).toHaveLength(3)
     expect(
       screen.getByRole('heading', { name: /all your favorite games in on place/i })
     ).toBeInTheDocument()

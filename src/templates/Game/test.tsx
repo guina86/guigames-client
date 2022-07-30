@@ -79,11 +79,8 @@ describe('<Game />', () => {
   it('should render the cover properly', () => {
     renderSut()
 
-    const cover = screen.getByLabelText(/cover/i)
-    expect(cover).toHaveStyle({
-      backgroundImage: 'url(/img/red-dead-img.jpg)',
-      height: '39.5rem'
-    })
+    const cover = screen.getByRole('img', { name: /borderlands 3/i }).parentElement
+
     expect(cover).toHaveStyleRule('height', '70rem', {
       media: '(min-width: 768px)'
     })
