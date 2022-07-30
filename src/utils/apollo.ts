@@ -1,10 +1,13 @@
 import { ApolloClient, HttpLink, NormalizedCacheObject } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
-import { Session } from 'next-auth'
+import { Session as NextAuthSession } from 'next-auth'
 import { useMemo } from 'react'
 import { makeApolloCache } from './apolloCache'
 
 let apolloClient: ApolloClient<NormalizedCacheObject | null>
+export type Session = {
+  jwt: string
+} & NextAuthSession
 
 function createApolloClient(session?: Session | null) {
   const httpLink = new HttpLink({ uri: `${process.env.NEXT_PUBLIC_API_URL}/graphql` })

@@ -8,10 +8,10 @@ import Base from 'templates/Base'
 import * as S from './styles'
 import FormPayment from 'components/FormPayment'
 import { Info } from '@styled-icons/material-outlined'
-import { Session } from 'next-auth'
+import { Session } from 'utils/apollo'
 
 export type CheckoutTemplateProps = {
-  session: Session & { jwt: string }
+  session: Session
 }
 
 const stripe = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`, { locale: 'en' })

@@ -1,5 +1,5 @@
 import NextAuth, { User } from 'next-auth'
-import { Session } from 'next-auth'
+import { Session } from 'utils/apollo'
 import { JWT } from 'next-auth/jwt'
 import Providers from 'next-auth/providers'
 import { NextApiRequest, NextApiResponse } from 'next-auth/internals/utils'
@@ -35,7 +35,7 @@ const options = {
   ],
   callbacks: {
     session: async (session: Session, user: User) => {
-      session.jwt = user.jwt
+      session.jwt = user.jwt as string
       session.id = user.id
 
       return Promise.resolve(session)

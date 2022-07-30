@@ -5,7 +5,7 @@ import Button from 'components/Button'
 import { FormLoading } from 'components/Form'
 import Heading from 'components/Heading'
 import { useCart } from 'hooks/use-cart'
-import { Session } from 'next-auth'
+import { Session } from 'utils/apollo'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
@@ -13,7 +13,7 @@ import { createPayment, createPaymentIntent } from 'utils/stripe/methods'
 import * as S from './styles'
 
 type FormPaymentProps = {
-  session: Session & { jwt: string }
+  session: Session
 }
 
 const FormPayment = ({ session }: FormPaymentProps) => {

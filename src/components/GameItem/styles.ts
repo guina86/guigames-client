@@ -100,6 +100,7 @@ export const DownloadLink = styled.a`
   ${({ theme }) => css`
     color: ${theme.colors.primary};
     margin-left: ${theme.spacings.xxsmall};
+    margin-bottom: ${theme.spacings.xxsmall};
   `}
 `
 
