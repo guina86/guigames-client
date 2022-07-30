@@ -21,9 +21,10 @@ describe('<Highlight />', () => {
   it('should render background image', () => {
     renderSut()
 
-    expect(screen.getByTestId('wrapper')).toHaveStyle({
-      backgroundImage: `url(${highlighMock.backgroundImage})`
-    })
+    expect(screen.getByRole('img', { name: /background red dead is back/i })).toHaveAttribute(
+      'src',
+      highlighMock.backgroundImage
+    )
   })
 
   it('should render float image', () => {

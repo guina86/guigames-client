@@ -1,4 +1,5 @@
 import Button from 'components/Button'
+import Image from 'next/image'
 import * as S from './styles'
 
 export type HighlighProps = {
@@ -22,7 +23,8 @@ const Highlight = ({
   buttonLink,
   wrapperTestId
 }: HighlighProps) => (
-  <S.Wrapper backgroundImage={backgroundImage} alignment={alignment} data-testid={wrapperTestId}>
+  <S.Wrapper alignment={alignment} data-testid={wrapperTestId}>
+    <Image src={backgroundImage} alt={`background ${title}`} layout="fill" />
     {!!floatImage && <S.FloatImage src={floatImage} alt={title} />}
     <S.Content>
       <S.Title>{title}</S.Title>

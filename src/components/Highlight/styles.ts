@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 import { HighlighProps } from '.'
 
-type WrapperProps = Pick<HighlighProps, 'backgroundImage' | 'alignment'>
+type WrapperProps = Pick<HighlighProps, 'alignment'>
 
 const wrapperModifiers = {
   right: () => css`
@@ -28,14 +28,11 @@ const wrapperModifiers = {
 }
 
 export const Wrapper = styled.section<WrapperProps>`
-  ${({ backgroundImage, alignment }) => css`
+  ${({ alignment }) => css`
     position: relative;
     height: 23rem;
     display: grid;
     grid-template-areas: 'floatimage content';
-    background-image: url(${backgroundImage});
-    background-position: center;
-    background-size: cover;
 
     &::after {
       content: '';
@@ -43,6 +40,11 @@ export const Wrapper = styled.section<WrapperProps>`
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    imt {
+      position: absolute;
+      object-fit: cover;
     }
 
     ${media.greaterThan('medium')`
