@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import xor from 'lodash.xor'
 import * as S from './styles'
 
-type Field = {
+export type Field = {
   label: string
   name: string
 }

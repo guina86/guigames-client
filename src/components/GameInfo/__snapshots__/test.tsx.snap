@@ -228,6 +228,7 @@ exports[`<GameInfo /> should render game information 1`] = `
 <div>
   <div
     class="c0"
+    data-testid="game-info"
   >
     <h2
       class="c1"

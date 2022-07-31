@@ -22,7 +22,7 @@ const CartList = ({ hasButton = false, hasLinks = true }: CartListProps) => {
     )
 
   return (
-    <S.Wrapper isEmpty={items.length === 0}>
+    <S.Wrapper isEmpty={items.length === 0} data-testid="cart-list">
       {items.length > 0 ? (
         <>
           <S.GamesList>

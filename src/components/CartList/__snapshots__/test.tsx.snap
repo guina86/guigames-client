@@ -164,6 +164,7 @@ exports[`<CartList /> should render the heading 1`] = `
 <div>
   <div
     class="c0"
+    data-testid="cart-list"
   >
     <div
       class="c1"

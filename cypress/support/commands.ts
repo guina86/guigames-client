@@ -28,7 +28,9 @@
 // Add Testing Library Commands
 import '@testing-library/cypress/add-commands'
 
-Cypress.Commands.add('google', () => cy.visit('https://google.com'))
+Cypress.Commands.add('getByTestId', (selector, ...args) =>
+  cy.get(`[data-testid="${selector}"]`, ...args)
+)
 
 Cypress.Commands.add('shouldRenderBanner', () => {
   cy.get('.slick-slider').within(() => {
@@ -52,11 +54,33 @@ Cypress.Commands.add('shouldRenderBanner', () => {
 Cypress.Commands.add('shouldRenderShowcase', ({ name, highlight = false }) => {
   cy.get(`[data-testid="${name}"]`).within(() => {
     cy.findByRole('heading', { name }).should('exist')
-    cy.get(`[data-testid="highlight"]`).should(highlight ? 'exist' : 'not.exist')
+    cy.findByTestId('highlight').should(highlight ? 'exist' : 'not.exist')
     highlight &&
-      cy.get(`[data-testid="highlight"]`).within(() => {
+      cy.findByTestId('highlight').within(() => {
         cy.findByRole('link').should('have.attr', 'href')
       })
-    cy.get('[data-testid="game-card"]').should('have.length.gt', 0)
+    cy.findAllByTestId('game-card').should('have.length.gt', 0)
   })
+})
+
+Cypress.Commands.add('shouldRenderFields', (fields) => {
+  fields.forEach(({ label }) => {
+    cy.findByText(label).should('exist')
+  })
+})
+
+Cypress.Commands.add('priceGreaterThan', (number) => {
+  cy.findByText(/^\$\d+(\.\d{2})/i)
+    .invoke('text')
+    .then(($el) => $el.replace('$', ''))
+    .then(parseFloat)
+    .should('be.gt', number)
+})
+
+Cypress.Commands.add('priceLessThan', (number) => {
+  cy.findByText(/^\$\d+(\.\d{2})/i)
+    .invoke('text')
+    .then(($el) => $el.replace('$', ''))
+    .then(parseFloat)
+    .should('be.lt', number)
 })

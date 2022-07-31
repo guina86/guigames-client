@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /// <reference path="../support/index.d.ts" />
 
 describe('Home Page', () => {

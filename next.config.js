@@ -5,7 +5,8 @@ const isProd = process.env.NODE_ENV === 'production'
 const nextConfig = withPWA({
   reactStrictMode: true,
   compiler: {
-    styledComponents: true
+    styledComponents: true,
+    reactRemoveProperties: false //true to remove data-testid in production
   },
   pwa: {
     dest: 'public',

@@ -36,6 +36,7 @@ jest.mock('components/Showcase', () => ({
 }))
 
 const args = {
+  slug: 'red-dead',
   cover: '/img/red-dead-img.jpg',
   gameInfo: gameInfoMock,
   gallery: galleryMock,
