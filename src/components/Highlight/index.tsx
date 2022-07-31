@@ -23,7 +23,7 @@ const Highlight = ({
   buttonLink,
   wrapperTestId
 }: HighlighProps) => (
-  <S.Wrapper alignment={alignment} data-testid={wrapperTestId}>
+  <S.Wrapper alignment={alignment} data-testid="highlight">
     <Image src={backgroundImage} alt={`background ${title}`} layout="fill" />
     {!!floatImage && <S.FloatImage src={floatImage} alt={title} />}
     <S.Content>

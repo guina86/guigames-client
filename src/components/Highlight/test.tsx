@@ -5,7 +5,7 @@ import highlighMock from './mock'
 
 describe('<Highlight />', () => {
   const renderSut = (props?: Partial<HighlighProps>) =>
-    render(<Highlight {...highlighMock} {...props} wrapperTestId="wrapper" />)
+    render(<Highlight {...highlighMock} {...props} />)
 
   it('should render headings and button', () => {
     renderSut()
@@ -39,11 +39,11 @@ describe('<Highlight />', () => {
   it('should render align right by default', () => {
     renderSut()
 
-    expect(screen.getByTestId('wrapper')).toHaveStyleRule(
+    expect(screen.getByTestId('highlight')).toHaveStyleRule(
       'grid-template-areas',
       "'floatimage content'"
     )
-    expect(screen.getByTestId('wrapper')).toHaveStyleRule('text-align', 'right', {
+    expect(screen.getByTestId('highlight')).toHaveStyleRule('text-align', 'right', {
       modifier: `${S.Content}`
     })
   })
@@ -51,11 +51,11 @@ describe('<Highlight />', () => {
   it('should render align left when passed', () => {
     renderSut({ alignment: 'left' })
 
-    expect(screen.getByTestId('wrapper')).toHaveStyleRule(
+    expect(screen.getByTestId('highlight')).toHaveStyleRule(
       'grid-template-areas',
       "'content floatimage'"
     )
-    expect(screen.getByTestId('wrapper')).toHaveStyleRule('text-align', 'left', {
+    expect(screen.getByTestId('highlight')).toHaveStyleRule('text-align', 'left', {
       modifier: `${S.Content}`
     })
   })
