@@ -26,7 +26,7 @@ const Wishlist = ({
 
   return (
     <Base>
-      <Container>
+      <Container data-testid="wishlist">
         <Heading lineColor="secondary" lineLeft>
           Wishlist
         </Heading>

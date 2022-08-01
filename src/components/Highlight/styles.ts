@@ -42,7 +42,7 @@ export const Wrapper = styled.section<WrapperProps>`
       background-color: rgba(0, 0, 0, 0.6);
     }
 
-    imt {
+    img {
       position: absolute;
       object-fit: cover;
     }

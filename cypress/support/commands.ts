@@ -98,3 +98,19 @@ Cypress.Commands.add('signIn', (email = 'e2e@guigames.com', password = '12345') 
   cy.findByPlaceholderText(/password/i).type(password)
   cy.findByRole('button', { name: /sign in now/i }).click()
 })
+
+Cypress.Commands.add('addToCartByIndex', (index) => {
+  cy.findAllByTestId('game-card')
+    .eq(index)
+    .within(() => {
+      cy.findByRole('button', { name: /add to cart/i }).click()
+    })
+})
+
+Cypress.Commands.add('removeFromCartByIndex', (index) => {
+  cy.findAllByTestId('game-card')
+    .eq(index)
+    .within(() => {
+      cy.findByRole('button', { name: /remove from cart/i }).click()
+    })
+})
