@@ -27,6 +27,7 @@
 //
 // Add Testing Library Commands
 import '@testing-library/cypress/add-commands'
+import 'cypress-plugin-stripe-elements'
 
 Cypress.Commands.add('getByTestId', (selector, ...args) =>
   cy.get(`[data-testid="${selector}"]`, ...args)

@@ -71,6 +71,7 @@
     "@types/styled-components": "^5.1.25",
     "apollo": "^2.33.4",
     "cypress": "7.5.0",
+    "cypress-plugin-stripe-elements": "^1.0.2",
     "eslint": "8.18.0",
     "eslint-config-next": "12.2.0",
     "eslint-config-prettier": "^8.5.0",
