@@ -1,5 +1,11 @@
 /// <reference types="cypress" />
 
+type User = {
+  username: string
+  email: string
+  password: string
+}
+
 type ShowcaseAttributes = {
   name: string
   highlight?: boolean
@@ -47,5 +53,17 @@ declare namespace Cypress {
      * @example cy.priceLessThan(100)
      */
     priceLessThan(value: number): Chainable<Element>
+
+    /**
+     * Custom command to sign-up random user
+     * @example cy.signUp({ username: 'leandro", email: 'any@mail.com', password: '12345' })
+     */
+    signUp(user: User): Chainable<Element>
+
+    /**
+     * Custom command to sign-up random user
+     * @example cy.signIn()
+     */
+    signIn(email?: string, password?: string): Chainable<Element>
   }
 }
