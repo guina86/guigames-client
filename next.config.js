@@ -6,7 +6,7 @@ const nextConfig = withPWA({
   reactStrictMode: true,
   compiler: {
     styledComponents: true,
-    reactRemoveProperties: false //true to remove data-testid in production
+    reactRemoveProperties: true //true to remove data-testid in production
   },
   pwa: {
     dest: 'public',

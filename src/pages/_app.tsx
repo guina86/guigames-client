@@ -30,7 +30,6 @@ function App({ Component, pageProps }: AppProps) {
                 <link rel="manifest" href="/manifest.json" />
                 <meta name="description" content="The Best Game Store in the world!" />
               </Head>
-              <Analytics />
               <DefaultSeo {...SEO} />
               <GlobalStyles />
               <NextNProgress

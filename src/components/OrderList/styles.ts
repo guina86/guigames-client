@@ -1,10 +1,19 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import * as GameItemStyles from 'components/GameItem/styles'
+import * as EmptyStyles from 'components/Empty/styles'
 
 export const Wrapper = styled.div`
-  ${GameItemStyles.Wrapper} {
-    &:last-child {
-      border-bottom: 0;
+  ${({ theme }) => css`
+    padding-bottom: ${theme.spacings.medium};
+
+    ${GameItemStyles.Wrapper} {
+      &:last-child {
+        border-bottom: 0;
+      }
     }
-  }
+
+    ${EmptyStyles.Description} {
+      color: ${theme.colors.black};
+    }
+  `}
 `

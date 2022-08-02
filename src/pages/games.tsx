@@ -3,7 +3,7 @@ import { initializeApollo } from 'utils/apollo'
 import { GET_GAMES } from 'graphql/queries/games'
 import { GetGames, GetGamesVariables } from 'graphql/generated/GetGames'
 
-import { parseQueryStringToFilter, parseQueryStringToWhere } from 'utils/filter'
+import { parseQueryStringToWhere } from 'utils/filter'
 import { GetServerSidePropsContext } from 'next'
 import { categoriesFields, platformsFields, priceFields, sortFields } from 'utils/filter/fields'
 
