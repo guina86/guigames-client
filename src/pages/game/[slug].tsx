@@ -25,7 +25,7 @@ export default function Index(props: GameTemplateProps) {
 export async function getStaticPaths() {
   const { data } = await apolloClient.query<GetGames, GetGamesVariables>({
     query: GET_GAMES,
-    variables: { limit: 9 }
+    variables: { limit: 200 }
   })
 
   const paths = data.games.map(({ slug }) => ({
@@ -60,7 +60,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     data: { showcase, upcomingGames }
   } = await apolloClient.query<GetUpcoming>({ query: GET_UPCOMING, variables: { date: TODAY } })
   return {
-    revalidate: 60,
+    revalidate: 60 * 60,
     props: {
       slug: params?.slug,
       cover: getImageUrl(game.cover?.src),
