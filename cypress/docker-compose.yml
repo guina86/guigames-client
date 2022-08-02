@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  api:
+    container_name: guigames_api
+    image: guigames/api:latest
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: guigames
+      DATABASE_PASSWORD: guigamespw
+      DATABASE_NAME: guigames
+      STRIPE_KEY: 'pk_test_51LQJU9KXycXfl8hWV7NwH2NovkHDunKtWOj9QM7jzWmFS01fEHETaLwqjlZ7w0zVoovROqMYdRBcVHz760ephVWk009q32zYpB'
+    ports:
+      - '1337:1337'
+    depends_on:
+      - db
+
+  db:
+    container_name: guigames_db
+    image: guigames/database:latest
+    ports:
+      - '5432:5432'
