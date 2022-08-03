@@ -182,7 +182,7 @@ exports[`<CartList /> should render the heading 1`] = `
             <img
               alt="Red Dead Redemption 2"
               height="70"
-              src="https://source.unsplash.com/user/willianjusten/151x70"
+              src="https://res.cloudinary.com/guinacloud/image/upload/v1659445472/thumbnail_red_dead_img_a0c18e2390.jpg"
               width="150"
             />
           </div>
@@ -223,7 +223,7 @@ exports[`<CartList /> should render the heading 1`] = `
             <img
               alt="Borderlands 3"
               height="70"
-              src="https://source.unsplash.com/user/willianjusten/151x70"
+              src="https://res.cloudinary.com/guinacloud/image/upload/v1659445472/thumbnail_borderlands_3_0021705309.png"
               width="150"
             />
           </div>

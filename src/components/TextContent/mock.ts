@@ -7,7 +7,7 @@ export default {
 <h5>Heading</h5>
 <h6>Heading</h6>
 
-<img alt="" src="/img/games/cyberpunk-1.jpg" />
+<img alt="" src="https://res.cloudinary.com/guinacloud/image/upload/v1659445770/cyberpunk_2077_cfe84605fd.jpg" />
 
 <p>
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
@@ -23,7 +23,7 @@ export default {
   sint quis ad quibusdam?
 </p>
 
-<img alt="" src="/img/games/cyberpunk-2.jpg" />
+<img alt="" src="https://res.cloudinary.com/guinacloud/image/upload/v1659445779/cyberpunk_2077_edd064a4e8.jpg" />
 
 <ul>
   <li>Lorem Ipsum</li>

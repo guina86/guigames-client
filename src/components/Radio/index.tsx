@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { InputHTMLAttributes } from 'react'
 import * as S from './styles'
 

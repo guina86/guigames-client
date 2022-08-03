@@ -1,7 +1,7 @@
+import styled from 'styled-components'
+import { Settings } from 'react-slick'
 import { Story, Meta } from '@storybook/react'
 import Slider from '.'
-import { Settings } from 'react-slick'
-import styled from 'styled-components'
 
 export default {
   title: 'Slider',

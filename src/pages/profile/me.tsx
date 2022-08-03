@@ -1,10 +1,10 @@
+import { GetServerSidePropsContext } from 'next'
 import FormProfile, { FormProfileProps } from 'components/FormProfile'
 import { GetProfileMe, GetProfileMeVariables } from 'graphql/generated/GetProfileMe'
 import { GET_PROFILE_ME } from 'graphql/queries/profile'
-import { GetServerSidePropsContext } from 'next'
-import Profile from 'templates/Profile'
 import { initializeApollo } from 'utils/apollo'
 import protectedRoutes from 'utils/protected-routes'
+import Profile from 'templates/Profile'
 
 export default function MePage(props: FormProfileProps) {
   return (

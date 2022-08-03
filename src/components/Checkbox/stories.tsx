@@ -5,10 +5,7 @@ export default {
   title: 'Form/Checkbox',
   component: Checkbox,
   parameters: {
-    layout: 'fullscreen',
-    backgrounds: {
-      default: 'gui-dark'
-    }
+    layout: 'fullscreen'
   },
   argTypes: {
     onCheck: { action: 'checked' }

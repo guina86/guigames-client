@@ -1,18 +1,16 @@
 import NextNProgress from 'nextjs-progressbar'
 import { DefaultSeo } from 'next-seo'
 import SEO from '../../next-seo.config'
+import type { AppProps } from 'next/app'
+import Head from 'next/head'
 import { Provider as AuthProvider } from 'next-auth/client'
 import { ApolloProvider } from '@apollo/client'
 import { ThemeProvider } from 'styled-components'
 import { CartProvider } from 'hooks/use-cart'
-import type { AppProps } from 'next/app'
-import Head from 'next/head'
-
-import GlobalStyles from 'styles/global'
-import theme from 'styles/theme'
 import { useApollo } from 'utils/apollo'
 import { WishlistProvider } from 'hooks/use-wishlist'
-import Analytics from 'components/Analytics'
+import GlobalStyles from 'styles/global'
+import theme from 'styles/theme'
 
 function App({ Component, pageProps }: AppProps) {
   const client = useApollo(pageProps.initialApolloState)

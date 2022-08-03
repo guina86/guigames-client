@@ -4,7 +4,6 @@ export type LogoProps = {
   color?: 'white' | 'black'
   size?: 'normal' | 'large'
   hideOnMobile?: boolean
-  wrapperTestId?: string
   id?: string
 }
 
@@ -12,10 +11,9 @@ const Logo = ({
   id = 'logo',
   color = 'white',
   size = 'normal',
-  hideOnMobile = false,
-  wrapperTestId
+  hideOnMobile = false
 }: LogoProps) => (
-  <S.Wrapper color={color} size={size} hideOnMobile={hideOnMobile} data-testid={wrapperTestId}>
+  <S.Wrapper color={color} size={size} hideOnMobile={hideOnMobile} data-testid="wrapper">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 -4 369.979 73.354"

@@ -1,8 +1,6 @@
-import {
-  Close as CloseIcon,
-  Search as SearchIcon,
-  ShoppingCart as ShoppingCartIcon
-} from '@styled-icons/material-outlined'
+import { useState } from 'react'
+import Link from 'next/link'
+import { Close as CloseIcon, Search as SearchIcon } from '@styled-icons/material-outlined'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill'
 import Button from 'components/Button'
 import CartDropdown from 'components/CartDropdown'
@@ -10,8 +8,6 @@ import CartIcon from 'components/CartIcon'
 import Logo from 'components/Logo'
 import MediaMatch from 'components/MediaMatch'
 import UserDropdown from 'components/UserDropdown'
-import Link from 'next/link'
-import { useState } from 'react'
 import * as S from './styles'
 
 export type MenuProps = {

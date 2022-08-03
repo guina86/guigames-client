@@ -1,8 +1,8 @@
-import { Session } from 'utils/apollo'
 import { render, screen } from 'utils/tests'
-import FormPayment from '.'
 import itemsMock from 'components/CartList/mock'
+import { CartContextData } from 'hooks/use-cart'
 import * as stripeMethods from 'utils/stripe/methods'
+import FormPayment from '.'
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 const push = jest.fn()
@@ -38,20 +38,19 @@ jest.mock('@stripe/react-stripe-js', () => ({
 const createPaymentIntent = jest.spyOn(stripeMethods, 'createPaymentIntent')
 
 describe('<FormPayment />>', () => {
-  let session: Session
+  const session = {
+    jwt: 'token',
+    user: {
+      email: 'gui@games.com'
+    },
+    expires: '13234'
+  }
 
-  beforeEach(() => {
-    session = {
-      jwt: 'token',
-      user: {
-        email: 'gui@games.com'
-      },
-      expires: '13234'
-    }
-  })
+  const renderSut = (cartProviderProps?: Partial<CartContextData>) =>
+    render(<FormPayment session={session} />, { cartProviderProps })
 
   it('should render the FormPayment correctly', () => {
-    render(<FormPayment session={session} />)
+    renderSut()
 
     expect(screen.getByRole('heading', { name: /payment/i })).toBeInTheDocument()
     expect(screen.getByTestId(/mock cardelement/i)).toBeInTheDocument()
@@ -60,7 +59,7 @@ describe('<FormPayment />>', () => {
 
   it('should call createPayment when it renders and render free if gets freeGames', async () => {
     createPaymentIntent.mockResolvedValueOnce({ freeGames: true })
-    render(<FormPayment session={session} />, { cartProviderProps: { items: itemsMock } })
+    renderSut({ items: itemsMock })
 
     expect(
       await screen.findByText(/click on Buy now to add the games to your account and enjoy./i)
@@ -70,7 +69,7 @@ describe('<FormPayment />>', () => {
 
   it('should call createPayment when it renders and render error if has any issue', async () => {
     createPaymentIntent.mockResolvedValueOnce({ error: 'Error message' })
-    render(<FormPayment session={session} />, { cartProviderProps: { items: itemsMock } })
+    renderSut({ items: itemsMock })
 
     expect(await screen.findByText(/error message/i)).toBeInTheDocument()
   })

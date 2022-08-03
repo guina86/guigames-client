@@ -1,8 +1,8 @@
 import NextAuth, { User } from 'next-auth'
-import { Session } from 'utils/apollo'
-import { JWT } from 'next-auth/jwt'
-import Providers from 'next-auth/providers'
 import { NextApiRequest, NextApiResponse } from 'next-auth/internals/utils'
+import Providers from 'next-auth/providers'
+import { JWT } from 'next-auth/jwt'
+import { Session } from 'utils/apollo'
 
 type AuthorizeProps = {
   email: string

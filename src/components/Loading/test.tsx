@@ -1,4 +1,3 @@
-/* eslint-disable testing-library/no-node-access */
 import theme from 'styles/theme'
 import { render, screen } from 'utils/tests'
 

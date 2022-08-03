@@ -1,8 +1,8 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import CartButton from 'components/CartButton'
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import WishlistButton from 'components/WishlistButton'
-import Image from 'next/image'
-import Link from 'next/link'
 import formatPrice from 'utils/format-price'
 import * as S from './styles'
 

@@ -22,8 +22,10 @@ describe('<BannerSlider />', () => {
     expect(container.querySelector('.slick-dots')).toBeInTheDocument()
 
     expect(
-      screen.getByRole('heading', { name: /defy death 1/i, hidden: false })
+      screen.getByRole('heading', { name: /cyberpunk 2077/i, hidden: false })
     ).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: /defy death 2/i, hidden: true })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /borderlands 3/i, hidden: true })
+    ).toBeInTheDocument()
   })
 })

@@ -1,9 +1,8 @@
-import { initializeApollo } from 'utils/apollo'
+import Success, { SuccessTemplateProps } from 'templates/Success'
 import { GetRecommended } from 'graphql/generated/GetRecommended'
 import { GET_RECOMMENDED } from 'graphql/queries/recommended'
+import { initializeApollo } from 'utils/apollo'
 import { gamesMapper, highlightMapper } from 'utils/mappers'
-import { GetServerSidePropsContext } from 'next'
-import Success, { SuccessTemplateProps } from 'templates/Success'
 
 export default function SuccessPage(props: SuccessTemplateProps) {
   return <Success {...props} />

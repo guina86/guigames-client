@@ -1,10 +1,9 @@
-/* eslint-disable testing-library/no-node-access */
 /* eslint-disable testing-library/no-container */
 import { render, screen } from 'utils/tests'
 import Logo, { LogoProps } from '.'
 
 describe('<Logo />', () => {
-  const renderSut = (props?: LogoProps) => render(<Logo wrapperTestId="logo-wrapper" {...props} />)
+  const renderSut = (props?: LogoProps) => render(<Logo {...props} />)
 
   it('should render a white label by default', () => {
     const { container } = renderSut({ id: 'my_id' })
@@ -15,7 +14,7 @@ describe('<Logo />', () => {
   it('should render a white label by default', () => {
     renderSut()
 
-    expect(screen.getByTestId('logo-wrapper')).toHaveStyle({
+    expect(screen.getByTestId('wrapper')).toHaveStyle({
       color: '#FAFAFA'
     })
   })
@@ -23,7 +22,7 @@ describe('<Logo />', () => {
   it('should render a black label when color is passed', () => {
     renderSut({ color: 'black' })
 
-    expect(screen.getByTestId('logo-wrapper')).toHaveStyle({
+    expect(screen.getByTestId('wrapper')).toHaveStyle({
       color: '#030517'
     })
   })
@@ -31,7 +30,7 @@ describe('<Logo />', () => {
   it('should render bigger logo', () => {
     renderSut({ size: 'large' })
 
-    expect(screen.getByTestId('logo-wrapper')).toHaveStyle({
+    expect(screen.getByTestId('wrapper')).toHaveStyle({
       width: '30rem'
     })
   })
@@ -39,7 +38,7 @@ describe('<Logo />', () => {
   it('should render a normal logo when size is default', () => {
     renderSut()
 
-    expect(screen.getByTestId('logo-wrapper')).toHaveStyle({
+    expect(screen.getByTestId('wrapper')).toHaveStyle({
       width: '17rem'
     })
   })
@@ -47,7 +46,7 @@ describe('<Logo />', () => {
   it('should render a a bigger logo without text on if hidenOnMobile', () => {
     renderSut({ hideOnMobile: true })
 
-    expect(screen.getByTestId('logo-wrapper')).toHaveStyleRule('width', '5.8rem', {
+    expect(screen.getByTestId('wrapper')).toHaveStyleRule('width', '5.8rem', {
       media: '(max-width: 768px)'
     })
   })

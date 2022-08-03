@@ -10,11 +10,11 @@ export default {
     }
   },
   args: {
-    img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/391730/header.jpg',
-    title: 'Defy death',
-    subtitle: '<p>Play the new <strong>CrashLands</strong> season',
+    img: 'https://res.cloudinary.com/guinacloud/image/upload/v1659457593/RDR_2_Screenshot_026_2e42523e53.jpg',
+    title: 'Red Dead Redemption 2',
+    subtitle: '<p>Play the new <strong>Red Dead Redemption</strong> now!',
     buttonLabel: 'Buy now',
-    buttonLink: '/games/defy-death'
+    buttonLink: '/games/rede-dead-redemption'
   },
   parameters: {
     layout: 'fullscreen'

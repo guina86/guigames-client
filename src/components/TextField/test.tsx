@@ -1,4 +1,3 @@
-/* eslint-disable testing-library/no-node-access */
 import { render, screen } from 'utils/tests'
 import userEvent from '@testing-library/user-event'
 import { Email } from '@styled-icons/material-outlined'
@@ -34,7 +33,7 @@ describe('<TextField />', () => {
   it('should render with icon on the right', () => {
     renderSut({ icon: <Email data-testid="icon" />, iconPosition: 'right' })
 
-    expect(screen.getByTestId('icon').parentElement?.parentElement).toHaveStyle({
+    expect(screen.getByTestId('input-wrapper')).toHaveStyle({
       flexDirection: 'row-reverse'
     })
   })

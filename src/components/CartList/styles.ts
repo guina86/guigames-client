@@ -1,6 +1,5 @@
 import { tint } from 'polished'
 import styled, { css } from 'styled-components'
-
 import * as EmptyStyles from 'components/Empty/styles'
 
 type WrapperProps = {

@@ -12,7 +12,7 @@ export default [
         id: '1',
         title: 'game',
         downloadLink: 'https://guigames.com/game/download/yuYT56Tgh43LkjhNBgdf',
-        img: 'http://localhost:1337/image.jpg',
+        img: 'https://res.cloudinary.com/guinacloud/image/upload/v1659445973/thumbnail_tunic_10285d1425.jpg',
         price: '$10.00'
       }
     ]
@@ -30,7 +30,7 @@ export default [
         id: '2',
         title: 'game',
         downloadLink: 'https://guigames.com/game/download/yuYT56Tgh43LkjhNBgdf',
-        img: 'http://localhost:1337/image.jpg',
+        img: 'https://res.cloudinary.com/guinacloud/image/upload/v1659445761/thumbnail_diablo_034421542e.jpg',
         price: '$10.00'
       }
     ]

@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from 'react'
+import Link from 'next/link'
+import { Done } from '@styled-icons/material-outlined'
+import Base from 'templates/Base'
 import { Container } from 'components/Container'
 import { GameCardProps } from 'components/GameCard'
 import { HighlighProps } from 'components/Highlight'
 import Showcase from 'components/Showcase'
-import Base from 'templates/Base'
-import * as S from './styles'
-import { Done } from '@styled-icons/material-outlined'
-import Link from 'next/link'
 import { useCart } from 'hooks/use-cart'
-import { useEffect } from 'react'
+import * as S from './styles'
 
 export type SuccessTemplateProps = {
   recommendedTitle: string

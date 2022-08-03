@@ -3,14 +3,9 @@ import TextContent, { TextContentprops } from '.'
 import textMock from './mock'
 
 export default {
-  title: 'TextContent',
+  title: 'Game/TextContent',
   component: TextContent,
-  args: textMock,
-  parameters: {
-    backgrounds: {
-      default: 'gui-dark'
-    }
-  }
+  args: textMock
 } as Meta
 
 export const Default: Story<TextContentprops> = (args) => <TextContent {...args} />

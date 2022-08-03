@@ -6,11 +6,15 @@ export default {
   title: 'BannerSlider',
   component: BannerSlider,
   args: { items },
-  parameters: {
-    layout: 'fullscreen',
-    backgrounds: {
-      default: 'gui-dark'
+  argTypes: {
+    items: {
+      table: {
+        disable: true
+      }
     }
+  },
+  parameters: {
+    layout: 'fullscreen'
   }
 } as Meta<BannerSliderProps>
 

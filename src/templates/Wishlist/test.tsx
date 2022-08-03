@@ -1,6 +1,6 @@
 import 'session.mock'
 import { render, screen } from 'utils/tests'
-import Wishlist, { WishlistTemplateProps } from '.'
+import Wishlist from '.'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 import { GameCardProps } from 'components/GameCard'

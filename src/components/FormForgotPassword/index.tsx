@@ -1,9 +1,9 @@
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 import { CheckCircleOutline, Email, ErrorOutline } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 import { FormError, FormLoading, FormSuccess, FormWrapper } from 'components/Form'
 import TextField from 'components/TextField'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
 import { FieldErrors, forgotValidate } from 'utils/validations'
 
 const FormForgotPassword = () => {

@@ -1,7 +1,7 @@
 import { tint } from 'polished'
+import media from 'styled-media-query'
 import styled, { css } from 'styled-components'
 import * as ButtonStyles from 'components/Button/styles'
-import media from 'styled-media-query'
 
 export const Wrapper = styled.main``
 

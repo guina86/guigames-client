@@ -1,7 +1,7 @@
-import { AccountCircle, ExitToApp, FormatListBulleted } from '@styled-icons/material-outlined'
 import { signOut } from 'next-auth/client'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { AccountCircle, ExitToApp, FormatListBulleted } from '@styled-icons/material-outlined'
 import * as S from './styles'
 
 export type ProfileMenuProps = {

@@ -11,10 +11,11 @@ const customJestConfig = {
   collectCoverageFrom: [
     'src/**/*.ts(x)?',
     '!src/**/stories.tsx',
-    '!src/pages/**/*.tsx',
+    '!src/pages/**/*.ts(x)?',
     '!src/styles/**/*.ts',
     '!src/utils/apollo.ts',
     '!src/utils/apolloCache.ts',
+    '!src/utils/stripe/*.tsx',
     '!src/graphql/**/*.ts',
     '!src/**/mock.ts'
   ],

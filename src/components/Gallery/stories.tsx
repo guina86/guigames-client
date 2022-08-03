@@ -3,14 +3,11 @@ import Gallery, { GalleryProps } from '.'
 import galleryMock from './mock'
 
 export default {
-  title: 'Gallery',
+  title: 'Game/Gallery',
   component: Gallery,
   args: { items: galleryMock },
   parameters: {
-    layout: 'fullscreen',
-    backgrounds: {
-      default: 'gui-dark'
-    }
+    layout: 'fullscreen'
   }
 } as Meta
 

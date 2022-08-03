@@ -1,12 +1,12 @@
+import React from 'react'
 import Games, { GamesTemplateProps } from '.'
+import userEvent from '@testing-library/user-event'
 import { MockedProvider } from '@apollo/client/testing'
 import categoriesMock from 'components/ExploreSidebar/mock'
-import userEvent from '@testing-library/user-event'
-import { fetchMoreMock, gamesMock, noGamesMock } from './mock'
 import { GameCardProps } from 'components/GameCard'
 import { makeApolloCache } from 'utils/apolloCache'
-import React from 'react'
 import { render, screen } from 'utils/tests'
+import { fetchMoreMock, gamesMock, noGamesMock } from './mock'
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 const push = jest.fn()

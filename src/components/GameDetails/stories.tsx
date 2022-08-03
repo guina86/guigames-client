@@ -5,11 +5,6 @@ import gameMock from './mock'
 export default {
   title: 'Game/GameDetails',
   component: GameDetails,
-  parameters: {
-    backgrounds: {
-      default: 'gui-dark'
-    }
-  },
   args: gameMock,
   argTypes: {
     releaseDate: {
@@ -26,6 +21,11 @@ export default {
         type: 'inline-check',
         options: ['Action', 'Adventure', 'RPG']
       }
+    }
+  },
+  parameters: {
+    backgrounds: {
+      default: 'gui-dark'
     }
   }
 } as Meta

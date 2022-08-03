@@ -1,7 +1,6 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 import media from 'styled-media-query'
 import { rgba } from 'polished'
-
 import * as CheckboxStyles from 'components/Checkbox/styles'
 import * as RadioStyles from 'components/Radio/styles'
 import * as HeadingStyles from 'components/Heading/styles'

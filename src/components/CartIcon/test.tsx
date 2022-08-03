@@ -1,5 +1,5 @@
-import { CartContextData, CartContextDefaultValues } from 'hooks/use-cart'
 import { render, screen } from 'utils/tests'
+import { CartContextData } from 'hooks/use-cart'
 import CartIcon from '.'
 
 describe('<CartIcon />', () => {

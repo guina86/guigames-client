@@ -1,10 +1,10 @@
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { signIn } from 'next-auth/client'
 import { ErrorOutline, Lock } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 import { FormError, FormLoading, FormWrapper } from 'components/Form'
 import TextField from 'components/TextField'
-import { signIn } from 'next-auth/client'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
 import { FieldErrors, resetValidate } from 'utils/validations'
 
 const FormResetPassword = () => {

@@ -1,9 +1,17 @@
-import '../.jest/next-image.mock'
 import { RouterContext } from 'next/dist/shared/lib/router-context'
 import { ThemeProvider } from 'styled-components'
 import { CartContext, CartContextDefaultValues } from 'hooks/use-cart'
 import GlobalStyles from 'styles/global'
 import theme from 'styles/theme'
+import Image from 'next/image'
+
+Image.propTypes = {
+  unoptimized: null
+}
+
+Image.defaultProps = {
+  unoptimized: true
+}
 
 export const parameters = {
   backgrounds: {

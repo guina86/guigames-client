@@ -1,3 +1,4 @@
+import Base from 'templates/Base'
 import { Container } from 'components/Container'
 import { Divider } from 'components/Divider'
 import Empty from 'components/Empty'
@@ -8,7 +9,6 @@ import { HighlighProps } from 'components/Highlight'
 import Loading from 'components/Loading'
 import Showcase from 'components/Showcase'
 import { useWishlist } from 'hooks/use-wishlist'
-import Base from 'templates/Base'
 import * as S from './styles'
 
 export type WishlistTemplateProps = {

@@ -75,6 +75,7 @@ exports[`<Footer /> should render the footer 1`] = `
     <div
       class="c1"
       color="black"
+      data-testid="wrapper"
     >
       <svg
         aria-label="Gui Games"

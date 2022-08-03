@@ -4,7 +4,7 @@ export default [
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x140',
+    img: 'https://res.cloudinary.com/guinacloud/image/upload/v1659445472/thumbnail_cyberpunk_18170bf328.jpg',
     price: 235,
     promotionalPrice: 215
   },
@@ -13,7 +13,7 @@ export default [
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x141',
+    img: 'https://res.cloudinary.com/guinacloud/image/upload/v1659445762/thumbnail_disco_elysium_0626682f5e.jpg',
     price: 235,
     promotionalPrice: 215
   },
@@ -22,7 +22,7 @@ export default [
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x142',
+    img: 'https://res.cloudinary.com/guinacloud/image/upload/v1659445973/thumbnail_spore_collection_11fe75a7ee.jpg',
     price: 235,
     promotionalPrice: 215
   },
@@ -31,7 +31,7 @@ export default [
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x143',
+    img: 'https://res.cloudinary.com/guinacloud/image/upload/v1659491731/thumbnail_BORDERLANDS_3_5_aed3302464.jpg',
     price: 235,
     promotionalPrice: 215
   },
@@ -40,7 +40,7 @@ export default [
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x144',
+    img: 'https://res.cloudinary.com/guinacloud/image/upload/v1659445760/thumbnail_tomb_raider_goty_574fbfedc6.jpg',
     price: 235,
     promotionalPrice: 215
   },
@@ -49,7 +49,7 @@ export default [
     title: 'Population Zero',
     slug: 'population-zero',
     developer: 'Rockstar Games',
-    img: 'https://source.unsplash.com/user/willianjusten/300x145',
+    img: 'https://res.cloudinary.com/guinacloud/image/upload/v1659445973/thumbnail_the_elder_scrolls_iii_morrowind_goty_edition_2e87afc799.jpg',
     price: 235,
     promotionalPrice: 215
   }

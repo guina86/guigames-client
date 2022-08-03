@@ -35,7 +35,7 @@ const TextField = ({
   return (
     <S.Wrapper disabled={disabled} error={!!error}>
       {!!label && <S.Label htmlFor={name}>{label}</S.Label>}
-      <S.InputWrapper iconPosition={iconPosition}>
+      <S.InputWrapper iconPosition={iconPosition} data-testid="input-wrapper">
         {!!icon && <S.Icon>{icon}</S.Icon>}
         <S.Input
           type="text"

@@ -4,7 +4,14 @@ import itemsMock from 'components/CartList/mock'
 
 export default {
   title: 'CartDropdown',
-  component: CartDropdown
+  component: CartDropdown,
+  argTypes: {
+    cartContextValue: {
+      table: {
+        disable: true
+      }
+    }
+  }
 } as Meta
 
 export const Default: Story = (args) => (

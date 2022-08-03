@@ -1,6 +1,7 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import Button from 'components/Button'
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
-import Image from 'next/image'
 import * as S from './styles'
 
 export type BannerProps = {
@@ -38,9 +39,11 @@ const Banner = ({
     <S.Caption>
       <S.Title>{title}</S.Title>
       <S.Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
-      <Button as="a" href={buttonLink} size="large">
-        {buttonLabel}
-      </Button>
+      <Link href={buttonLink} passHref>
+        <Button as="a" size="large">
+          {buttonLabel}
+        </Button>
+      </Link>
     </S.Caption>
   </S.Wrapper>
 )

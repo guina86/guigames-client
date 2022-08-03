@@ -1,4 +1,3 @@
-import { Windows } from '@styled-icons/fa-brands'
 import { getStorageItem, setStorageItem } from '.'
 
 describe('localStorage', () => {

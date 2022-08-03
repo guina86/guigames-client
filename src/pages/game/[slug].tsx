@@ -1,16 +1,16 @@
-import Game, { GameTemplateProps } from 'templates/Game'
+import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { initializeApollo } from 'utils/apollo'
+import Game, { GameTemplateProps } from 'templates/Game'
 import { GET_GAMES, GET_GAME_BY_SLUG } from 'graphql/queries/games'
 import { GetGames, GetGamesVariables } from 'graphql/generated/GetGames'
 import { GetGameBySlug, GetGameBySlugVariables } from 'graphql/generated/GetGameBySlug'
-import { GetStaticProps } from 'next'
 import { GetRecommended } from 'graphql/generated/GetRecommended'
 import { GET_RECOMMENDED } from 'graphql/queries/recommended'
-import { gamesMapper, highlightMapper } from 'utils/mappers'
 import { GetUpcoming } from 'graphql/generated/GetUpcoming'
 import { GET_UPCOMING } from 'graphql/queries/upcomming'
 import { getImageUrl } from 'utils/getImageUrl'
+import { gamesMapper, highlightMapper } from 'utils/mappers'
 
 const apolloClient = initializeApollo()
 

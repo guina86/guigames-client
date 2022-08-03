@@ -1,3 +1,4 @@
+import Base from 'templates/Base'
 import CartList, { CartListProps } from 'components/CartList'
 import { Container } from 'components/Container'
 import { Divider } from 'components/Divider'
@@ -5,9 +6,8 @@ import { GameCardProps } from 'components/GameCard'
 import Heading from 'components/Heading'
 import { HighlighProps } from 'components/Highlight'
 import Showcase from 'components/Showcase'
-import Base from 'templates/Base'
-import * as S from './styles'
 import CartSidePanel from 'components/CartSidePanel'
+import * as S from './styles'
 
 export type CartTemplateProps = {
   recommendedTitle: string

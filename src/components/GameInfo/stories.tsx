@@ -6,11 +6,6 @@ import gameMock from './mock'
 export default {
   title: 'Game/GameInfo',
   component: GameInfo,
-  parameters: {
-    backgrounds: {
-      default: 'gui-dark'
-    }
-  },
   args: gameMock
 } as Meta
 

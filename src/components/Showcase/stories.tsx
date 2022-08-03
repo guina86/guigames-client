@@ -14,10 +14,7 @@ export default {
     )
   ],
   parameters: {
-    layout: 'fullscreen',
-    backgrounds: {
-      default: 'gui-dark'
-    }
+    layout: 'fullscreen'
   }
 } as Meta
 

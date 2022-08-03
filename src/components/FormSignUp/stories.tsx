@@ -1,3 +1,4 @@
+import { MockedProvider } from '@apollo/client/testing'
 import { Story, Meta } from '@storybook/react'
 import FormSignUp from '.'
 
@@ -13,6 +14,8 @@ export default {
 
 export const Default: Story = () => (
   <div style={{ width: 300, margin: 'auto' }}>
-    <FormSignUp />
+    <MockedProvider>
+      <FormSignUp />
+    </MockedProvider>
   </div>
 )

@@ -1,12 +1,12 @@
 /* eslint-disable testing-library/no-node-access */
 import 'match-media-mock'
 import { render, screen } from 'utils/tests'
-import Game, { GameTemplateProps } from '.'
 import galleryMock from 'components/Gallery/mock'
 import gameInfoMock from 'components/GameInfo/mock'
 import gameDetailsmock from 'components/GameDetails/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
+import Game, { GameTemplateProps } from '.'
 
 jest.mock('templates/Base', () => ({
   __esModule: true,

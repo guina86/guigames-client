@@ -1,10 +1,9 @@
+import { GetServerSidePropsContext } from 'next'
 import Games, { GamesTemplateProps } from 'templates/Games'
-import { initializeApollo } from 'utils/apollo'
 import { GET_GAMES } from 'graphql/queries/games'
 import { GetGames, GetGamesVariables } from 'graphql/generated/GetGames'
-
+import { initializeApollo } from 'utils/apollo'
 import { parseQueryStringToWhere } from 'utils/filter'
-import { GetServerSidePropsContext } from 'next'
 import { categoriesFields, platformsFields, priceFields, sortFields } from 'utils/filter/fields'
 
 export default function GamesPage(props: GamesTemplateProps) {

@@ -123,6 +123,7 @@ exports[`<FormSignIn /> should render the Form 1`] = `
       >
         <div
           class="c2"
+          data-testid="input-wrapper"
         >
           <label
             class="c3"
@@ -158,6 +159,7 @@ exports[`<FormSignIn /> should render the Form 1`] = `
       >
         <div
           class="c2"
+          data-testid="input-wrapper"
         >
           <label
             class="c3"
@@ -193,6 +195,7 @@ exports[`<FormSignIn /> should render the Form 1`] = `
       >
         <div
           class="c2"
+          data-testid="input-wrapper"
         >
           <label
             class="c3"
@@ -235,6 +238,7 @@ exports[`<FormSignIn /> should render the Form 1`] = `
       >
         <div
           class="c2"
+          data-testid="input-wrapper"
         >
           <label
             class="c3"

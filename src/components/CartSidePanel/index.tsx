@@ -1,8 +1,8 @@
+import Link from 'next/link'
 import { ShoppingCart } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 import Heading from 'components/Heading'
 import { useCart } from 'hooks/use-cart'
-import Link from 'next/link'
 import * as S from './styles'
 
 const CartSidePanel = () => {

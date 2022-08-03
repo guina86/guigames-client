@@ -1,12 +1,12 @@
-import Wishlist, { WishlistTemplateProps } from 'templates/Wishlist'
-import { initializeApollo } from 'utils/apollo'
-import { GET_RECOMMENDED } from 'graphql/queries/recommended'
-import { GetRecommended } from 'graphql/generated/GetRecommended'
-import { gamesMapper, highlightMapper } from 'utils/mappers'
 import { GetServerSidePropsContext } from 'next'
-import protectedRoutes from 'utils/protected-routes'
-import { GetWishlist, GetWishlistVariables } from 'graphql/generated/GetWishlist'
+import Wishlist, { WishlistTemplateProps } from 'templates/Wishlist'
+import { GET_RECOMMENDED } from 'graphql/queries/recommended'
 import { GET_WISHLIST } from 'graphql/queries/wishlist'
+import { GetWishlist, GetWishlistVariables } from 'graphql/generated/GetWishlist'
+import { GetRecommended } from 'graphql/generated/GetRecommended'
+import { initializeApollo } from 'utils/apollo'
+import { gamesMapper, highlightMapper } from 'utils/mappers'
+import protectedRoutes from 'utils/protected-routes'
 
 export default function WishlistPage(props: WishlistTemplateProps) {
   return <Wishlist {...props} />

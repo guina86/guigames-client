@@ -1,8 +1,8 @@
 import 'server.mock'
 import userEvent from '@testing-library/user-event'
+import { signIn } from 'next-auth/client'
 import { render, screen } from 'utils/tests'
 import FormResetPassword from '.'
-import { signIn } from 'next-auth/client'
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 let query = {}

@@ -2,8 +2,10 @@ import { render, screen } from 'utils/tests'
 import Spinner from '.'
 
 describe('<Spinner />', () => {
+  const renderSut = () => render(<Spinner />)
+
   it('Should render correctly', () => {
-    render(<Spinner />)
+    renderSut()
 
     expect(screen.getByTitle(/loading/i)).toBeInTheDocument()
   })

@@ -1,9 +1,9 @@
+import Link from 'next/link'
 import Button from 'components/Button'
 import Empty from 'components/Empty'
 import GameItem from 'components/GameItem'
 import Loading from 'components/Loading'
 import { useCart } from 'hooks/use-cart'
-import Link from 'next/link'
 import * as S from './styles'
 
 export type CartListProps = {

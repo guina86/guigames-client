@@ -6,17 +6,24 @@ import items from './mock'
 export default {
   title: 'GameCardSlider',
   component: GameCardSlider,
-  args: { items },
-  parameters: {
-    layout: 'fullscreen',
-    backgrounds: {
-      default: 'gui-dark'
+  args: {
+    color: 'white',
+    items
+  },
+  argTypes: {
+    items: {
+      table: {
+        disable: true
+      }
     }
+  },
+  parameters: {
+    layout: 'fullscreen'
   }
 } as Meta
 
 export const Default: Story<GameCardProps[]> = (args) => (
-  <div style={{ maxWidth: '130rem', margin: '0 auto' }}>
+  <div style={{ maxWidth: '130rem', margin: '4rem auto' }}>
     <GameCardSlider items={args} {...args} />
   </div>
 )

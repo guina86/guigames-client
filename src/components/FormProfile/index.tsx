@@ -1,7 +1,7 @@
+import Link from 'next/link'
 import Button from 'components/Button'
 import Heading from 'components/Heading'
 import TextField from 'components/TextField'
-import Link from 'next/link'
 import * as S from './styles'
 
 export type FormProfileProps = {

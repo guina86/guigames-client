@@ -1,10 +1,10 @@
+import { GetServerSidePropsContext } from 'next'
 import Profile from 'templates/Profile'
 import OrderList, { OrderListProps } from 'components/OrderList'
-import { GetServerSidePropsContext } from 'next'
-import protectedRoutes from 'utils/protected-routes'
-import { initializeApollo } from 'utils/apollo'
 import { GetOrders, GetOrdersVariables } from 'graphql/generated/GetOrders'
 import { GET_ORDERS } from 'graphql/queries/orders'
+import protectedRoutes from 'utils/protected-routes'
+import { initializeApollo } from 'utils/apollo'
 import { ordersMapper } from 'utils/mappers'
 
 export default function OrdersPage({ items }: OrderListProps) {

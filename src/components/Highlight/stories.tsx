@@ -21,5 +21,6 @@ export const WithFloatImage: Story<HighlighProps> = (args) => (
 )
 
 WithFloatImage.args = {
-  floatImage: '/img/red-dead-float.png'
+  floatImage:
+    'https://res.cloudinary.com/guinacloud/image/upload/v1659445472/red_dead_float_6f19298173.png'
 }

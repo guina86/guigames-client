@@ -1,4 +1,6 @@
 import { NextSeo } from 'next-seo'
+import Image from 'next/image'
+import Base from 'templates/Base'
 import Gallery, { GalleryImageProps } from 'components/Gallery'
 import GameDetails, { GameDetailsProps } from 'components/GameDetails'
 import GameInfo, { GameInfoProps } from 'components/GameInfo'
@@ -7,9 +9,7 @@ import { GameCardProps } from 'components/GameCard'
 import { HighlighProps } from 'components/Highlight'
 import Showcase from 'components/Showcase'
 import TextContent from 'components/TextContent'
-import Base from 'templates/Base'
 import * as S from './styles'
-import Image from 'next/image'
 
 export type GameTemplateProps = {
   slug: string

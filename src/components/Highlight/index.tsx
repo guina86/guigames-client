@@ -1,5 +1,6 @@
-import Button from 'components/Button'
 import Image from 'next/image'
+import Link from 'next/link'
+import Button from 'components/Button'
 import * as S from './styles'
 
 export type HighlighProps = {
@@ -29,9 +30,9 @@ const Highlight = ({
     <S.Content>
       <S.Title>{title}</S.Title>
       <S.Subtitle>{subtitle}</S.Subtitle>
-      <Button as="a" href={buttonLink}>
-        {buttonLabel}
-      </Button>
+      <Link href={buttonLink} passHref>
+        <Button as="a">{buttonLabel}</Button>
+      </Link>
     </S.Content>
   </S.Wrapper>
 )

@@ -1,6 +1,6 @@
+import Image from 'next/image'
 import { Download } from '@styled-icons/boxicons-solid'
 import { useCart } from 'hooks/use-cart'
-import Image from 'next/image'
 import * as S from './styles'
 
 export type PaymentInfoProps = {

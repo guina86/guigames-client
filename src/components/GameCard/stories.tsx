@@ -9,18 +9,13 @@ export default {
     slug: 'defy-death',
     title: 'Defy death',
     developer: 'Butterscotch Shenanigans',
-    img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/391730/header.jpg',
+    img: 'https://res.cloudinary.com/guinacloud/image/upload/v1659457593/thumbnail_RDR_2_Screenshot_026_2e42523e53.jpg',
     price: 105,
     promotionalPrice: 50
   },
   argTypes: {
     onFav: { action: 'clicked' },
     ribbon: { type: 'string' }
-  },
-  parameters: {
-    backgrounds: {
-      default: 'gui-dark'
-    }
   }
 } as Meta
 

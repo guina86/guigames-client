@@ -1,8 +1,8 @@
 import 'session.mock'
 import 'match-media-mock'
+import { render, screen } from 'utils/tests'
 import GameCardSlider, { GameCardSliderProps } from '.'
 import items from './mock'
-import { render, screen } from 'utils/tests'
 
 describe('<GameCardSlider />', () => {
   const renderSut = (props?: Pick<GameCardSliderProps, 'color'>) =>

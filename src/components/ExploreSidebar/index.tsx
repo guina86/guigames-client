@@ -1,11 +1,11 @@
+import { useEffect, useState } from 'react'
+import xor from 'lodash.xor'
+import { ParsedUrlQueryInput } from 'querystring'
 import { Close, FilterList } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 import Checkbox from 'components/Checkbox'
 import Heading from 'components/Heading'
 import Radio from 'components/Radio'
-import { ParsedUrlQueryInput } from 'querystring'
-import { useEffect, useState } from 'react'
-import xor from 'lodash.xor'
 import * as S from './styles'
 
 export type Field = {

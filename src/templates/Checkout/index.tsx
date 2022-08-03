@@ -1,14 +1,14 @@
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
+import { Info } from '@styled-icons/material-outlined'
+import Base from 'templates/Base'
 import CartList from 'components/CartList'
 import { Container } from 'components/Container'
 import { Divider } from 'components/Divider'
 import Heading from 'components/Heading'
-import Base from 'templates/Base'
-import * as S from './styles'
 import FormPayment from 'components/FormPayment'
-import { Info } from '@styled-icons/material-outlined'
 import { Session } from 'utils/apollo'
+import * as S from './styles'
 
 export type CheckoutTemplateProps = {
   session: Session

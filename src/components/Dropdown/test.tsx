@@ -1,6 +1,5 @@
-/* eslint-disable testing-library/no-node-access */
-import { render, screen } from 'utils/tests'
 import userEvent from '@testing-library/user-event'
+import { render, screen } from 'utils/tests'
 import Dropdown from '.'
 
 describe('<Dropdown />', () => {
@@ -33,8 +32,7 @@ describe('<Dropdown />', () => {
     renderSut()
 
     const title = screen.getByText(/click here/i)
-    const content = screen.getByText(/content/i)
-    const overlay = content.nextElementSibling!
+    const overlay = screen.getByTestId('overlay')
 
     await userEvent.click(title)
 

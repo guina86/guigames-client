@@ -6,7 +6,7 @@ export default {
   title: 'ExploreSidebar',
   component: ExploreSidebar,
   args: {
-    categories: categoriesMock,
+    filterItems: categoriesMock,
     initialValues: {
       'under-200': true,
       platforms: ['windows', 'linux'],
