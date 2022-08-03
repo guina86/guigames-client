@@ -1,6 +1,7 @@
 import { tint } from 'polished'
 import styled, { css } from 'styled-components'
 import * as ButtonStyles from 'components/Button/styles'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.main``
 
@@ -38,5 +39,14 @@ export const Text = styled.div`
     > p {
       margin-bottom: ${theme.spacings.xsmall};
     }
+
+    ${media.lessThan('medium')`
+      font-size: ${theme.font.sizes.small};
+      
+      > p {
+        margin: 0;
+      }
+      
+    `}
   `}
 `

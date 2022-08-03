@@ -171,6 +171,7 @@ exports[`<CartList /> should render the heading 1`] = `
     >
       <div
         class="c2"
+        data-testid="game-item"
       >
         <div
           class="c3"
@@ -211,6 +212,7 @@ exports[`<CartList /> should render the heading 1`] = `
       </div>
       <div
         class="c2"
+        data-testid="game-item"
       >
         <div
           class="c3"

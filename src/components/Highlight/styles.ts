@@ -60,7 +60,7 @@ export const FloatImage = styled.img`
     grid-area: floatimage;
     z-index: ${theme.layers.base};
     max-height: 23rem;
-    max-width: 100%;
+    max-width: 80%;
     align-self: end;
 
     ${media.greaterThan('medium')`
